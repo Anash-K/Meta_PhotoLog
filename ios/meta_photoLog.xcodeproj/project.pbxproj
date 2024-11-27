@@ -15,6 +15,9 @@
 		7699B88040F8A987B510C191 /* libPods-meta_photoLog-meta_photoLogTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-meta_photoLog-meta_photoLogTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B9321676BAA735967FEFAA32 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		F762556B05AA415BAFC8BE91 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D15BB0696CB440DEB79D7EC2 /* OpenSans-Bold.ttf */; };
+		888E6A3CE7444C88A30FA238 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F76AFC747BAC44F99E4EAA98 /* OpenSans-Regular.ttf */; };
+		801AC1E42FA448DEB88DD11E /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32A7FF40D7054FE18C2E34AA /* OpenSans-Semibold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = meta_photoLog/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-meta_photoLog-meta_photoLogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meta_photoLog-meta_photoLogTests.release.xcconfig"; path = "Target Support Files/Pods-meta_photoLog-meta_photoLogTests/Pods-meta_photoLog-meta_photoLogTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		D15BB0696CB440DEB79D7EC2 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; name = "OpenSans-Bold.ttf"; path = "../src/assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F76AFC747BAC44F99E4EAA98 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; name = "OpenSans-Regular.ttf"; path = "../src/assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		32A7FF40D7054FE18C2E34AA /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; name = "OpenSans-Semibold.ttf"; path = "../src/assets/fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				C22BB837E1564AAAACF027D9 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -149,6 +156,17 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-meta_photoLog-meta_photoLogTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C22BB837E1564AAAACF027D9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D15BB0696CB440DEB79D7EC2 /* OpenSans-Bold.ttf */,
+				F76AFC747BAC44F99E4EAA98 /* OpenSans-Regular.ttf */,
+				32A7FF40D7054FE18C2E34AA /* OpenSans-Semibold.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +265,9 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				B9321676BAA735967FEFAA32 /* PrivacyInfo.xcprivacy in Resources */,
+				F762556B05AA415BAFC8BE91 /* OpenSans-Bold.ttf in Resources */,
+				888E6A3CE7444C88A30FA238 /* OpenSans-Regular.ttf in Resources */,
+				801AC1E42FA448DEB88DD11E /* OpenSans-Semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

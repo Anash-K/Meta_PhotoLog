@@ -1,11 +1,15 @@
-import {Pressable, View, Text, StyleSheet} from 'react-native';
+import {Pressable, View, Text, StyleSheet, Image} from 'react-native';
 import {GlobalColors} from '../../constants/Colors';
 
 const CustomButton = ({
   buttonTitle,
   containerStyle,
   pressableStyle,
+  pressableContainerStyle,
   OnPressAction,
+  Icon,
+  IconStyle,
+  InnerTextStyle,
 }) => {
   return (
     <View style={[styles.container, containerStyle]}>
@@ -13,10 +17,18 @@ const CustomButton = ({
         style={({pressed}) => [
           styles.pressableContainer,
           pressed && styles.buttonPressed,
+          pressableContainerStyle,
         ]}
         onPress={OnPressAction}>
         <View style={[styles.innerContainer, pressableStyle]}>
-          <Text style={styles.text}>{buttonTitle}</Text>
+          {Icon && (
+            <Image
+              source={Icon}
+              style={[styles.IconStyle]}
+              resizeMode="contain"
+            />
+          )}
+          <Text style={[styles.text, InnerTextStyle]}>{buttonTitle}</Text>
         </View>
       </Pressable>
     </View>
@@ -31,12 +43,12 @@ const styles = StyleSheet.create({
   },
   pressableContainer: {
     borderRadius: 12,
-    backgroundColor: GlobalColors.buttonColor,
     padding: 14,
+    backgroundColor: GlobalColors.primaryBase,
   },
   text: {
-    fontSize: 16,
     fontFamily: 'OpenSans-Semibold',
+    fontSize: 16,
     color: 'white',
   },
   innerContainer: {

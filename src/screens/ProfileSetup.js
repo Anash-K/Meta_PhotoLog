@@ -20,7 +20,12 @@ import {useNavigation} from '@react-navigation/native';
 const ProjectSetup = () => {
   const navigator = useNavigation();
 
-  const handleChange = () => {};
+  const handleChange = () => {
+  };
+
+  const handleForwardPush = () => {
+    navigator.navigate("BottomNav");
+  };
 
   const handleBackNav = () => {
     navigator.goBack();
@@ -71,7 +76,7 @@ const ProjectSetup = () => {
             <CustomButton
               containerStyle={{marginBottom: 25}}
               buttonTitle={'Continue'}
-              onPress={handleChange}
+              OnPressAction={handleForwardPush}
             />
           </View>
         </ScrollView>
@@ -86,7 +91,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingVertical: 14,
-    paddingHorizontal: 7,
+    paddingHorizontal: 10,
   },
   title: {
     color: '#292D32',

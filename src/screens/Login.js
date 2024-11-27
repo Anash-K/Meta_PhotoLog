@@ -5,6 +5,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -44,6 +45,11 @@ const Login = () => {
           contentContainerStyle={{flexGrow: 1}}
           keyboardShouldPersistTaps="handled">
           <View style={styles.container}>
+            <StatusBar
+              translucent
+              backgroundColor="transparent"
+              barStyle="dark-content"
+            />
             <View style={styles.top}>
               <View style={styles.imageContainer}>
                 <Image source={icon} style={styles.image} />
@@ -118,11 +124,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   bottomTextBox: {
+    marginTop: 10,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
     gap: 4,
+    marginBottom: 20,
   },
   bottomText: {
     fontFamily: 'OpenSans-Regular',
@@ -130,11 +138,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   bottomSubText: {
-    color: GlobalColors.buttonColor,
+    color: GlobalColors.primaryBase,
     fontFamily: 'OpenSans-Semibold',
-  },top:{
-    flex:1
-  }
+  },
+  top: {
+    flex: 1,
+  },
 });
 
 export default Login;

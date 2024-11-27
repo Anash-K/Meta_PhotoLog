@@ -25,7 +25,7 @@ const CreateAccount = () => {
   };
 
   const handleSubmit = () => {
-    navigator.navigate("projectSetup")
+    navigator.navigate('projectSetup');
   };
 
   const handleCreateAccount = () => {
@@ -44,26 +44,27 @@ const CreateAccount = () => {
           contentContainerStyle={{flexGrow: 1}}
           keyboardShouldPersistTaps="handled">
           <View style={styles.container}>
-            <View style={styles.imageContainer}>
-              <Image source={icon} style={styles.image} />
-            </View>
-            <View style={styles.textContainer}>
-              <Text style={styles.text}>Join Us Today!</Text>
-            </View>
-            <View>
-              <CustomInput label={'Email'} onChange={handleChange} />
-              <CustomInput
-                label={'Password'}
-                isPassword={true}
-                onChange={handleChange}
+            <View style={{flex: 1}}>
+              <View style={styles.imageContainer}>
+                <Image source={icon} style={styles.image} />
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.text}>Join Us Today!</Text>
+              </View>
+              <View>
+                <CustomInput label={'Email'} onChange={handleChange} />
+                <CustomInput
+                  label={'Password'}
+                  isPassword={true}
+                  onChange={handleChange}
+                />
+              </View>
+              <CustomButton
+                buttonTitle={'Create Account'}
+                OnPressAction={handleSubmit}
+                containerStyle={styles.buttonContainer}
               />
             </View>
-            <CustomButton
-              buttonTitle={'Create Account'}
-              OnPressAction={handleSubmit}
-              containerStyle={styles.buttonContainer}
-            />
-
             <View style={styles.bottomTextBox}>
               <Text style={styles.bottomText}>Already have an account?</Text>
               <TouchableOpacity onPress={handleCreateAccount}>
@@ -114,13 +115,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   bottomTextBox: {
-    position: 'absolute',
-    bottom: 30,
-    width: '100%',
+    marginTop:10,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
     gap: 4,
+    marginBottom:20
   },
   bottomText: {
     fontFamily: 'OpenSans-Regular',
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   bottomSubText: {
-    color: GlobalColors.buttonColor,
+    color: GlobalColors.primaryBase,
     fontFamily: 'OpenSans-Semibold',
   },
 });

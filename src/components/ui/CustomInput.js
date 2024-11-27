@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   label: {
     textTransform: 'capitalize',
     fontSize: 14,
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: 'OpenSans-Semibold',
     marginBottom: 10,
   },
   iconEye: {
@@ -125,13 +125,16 @@ const styles = StyleSheet.create({
   },
   phoneTextContainer: {
     backgroundColor: 'transparent',
-    paddingVertical: 16,
-    paddingHorizontal: 8,
+    // paddingVertical: 16,
+    // paddingHorizontal: 8,
     borderLeftWidth: 1,
     borderColor: '#D7D8DC',
+    maxHeight:60,
+    padding:0
   },
   phoneTextInput: {
     fontSize: 16,
     color: '#000',
+    padding:0
   },
 });

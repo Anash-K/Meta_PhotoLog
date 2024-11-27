@@ -1,4 +1,5 @@
 export const GlobalColors ={
-    buttonColor:'#006D77',
+    primaryBase:'#006D77',
+    primaryLight:'#FAFAFA',
 };
 

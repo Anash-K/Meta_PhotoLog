@@ -10,26 +10,37 @@ const CustomButton = ({
   Icon,
   IconStyle,
   InnerTextStyle,
+  PressedTextStyle,
+  customPressedButton,
 }) => {
   return (
     <View style={[styles.container, containerStyle]}>
       <Pressable
         style={({pressed}) => [
           styles.pressableContainer,
-          pressed && styles.buttonPressed,
           pressableContainerStyle,
+          pressed && (customPressedButton || styles.buttonPressed),
         ]}
         onPress={OnPressAction}>
-        <View style={[styles.innerContainer, pressableStyle]}>
-          {Icon && (
-            <Image
-              source={Icon}
-              style={[styles.IconStyle]}
-              resizeMode="contain"
-            />
-          )}
-          <Text style={[styles.text, InnerTextStyle]}>{buttonTitle}</Text>
-        </View>
+        {({pressed}) => (
+          <View style={[styles.innerContainer, pressableStyle]}>
+            {Icon && (
+              <Image
+                source={Icon}
+                style={[styles.iconSize, IconStyle]}
+                resizeMode="contain"
+              />
+            )}
+            <Text
+              style={[
+                styles.text,
+                InnerTextStyle,
+                pressed && PressedTextStyle,
+              ]}>
+              {buttonTitle}
+            </Text>
+          </View>
+        )}
       </Pressable>
     </View>
   );
@@ -57,5 +68,9 @@ const styles = StyleSheet.create({
   },
   buttonPressed: {
     opacity: 0.75,
+  },
+  iconSize: {
+    width: 20,
+    height: 20,
   },
 });

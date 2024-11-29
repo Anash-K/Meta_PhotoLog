@@ -17,6 +17,7 @@ const ProjectsData = [
     date: 'Oct 1, 2024 - Oct 31, 2024',
     projectInfo:
       'This project focuses on introducing new features in Windows 11, ensuring compatibility, and enhancing the user experience through incremental updates.',
+    projectCode: 'WIN11-2024',
     Options: [
       {id: 1, name: 'Add Photo'},
       {id: 2, name: 'View Project Details'},
@@ -31,6 +32,7 @@ const ProjectsData = [
     date: 'Nov 1, 2024 - Nov 30, 2024',
     projectInfo:
       'This project involves migrating critical applications and data to AWS Cloud, improving scalability, security, and performance.',
+    projectCode: 'CLOUD-MIG-2024',
     Options: [
       {id: 1, name: 'Add Photo'},
       {id: 2, name: 'View Project Details'},
@@ -45,6 +47,7 @@ const ProjectsData = [
     date: 'Dec 1, 2024 - Dec 15, 2024',
     projectInfo:
       'Focused on implementing AI solutions to automate tasks, reduce errors, and increase efficiency across Google’s services.',
+    projectCode: 'AI-AUTO-2024',
     Options: [
       {id: 1, name: 'Add Photo'},
       {id: 2, name: 'View Project Details'},
@@ -59,6 +62,7 @@ const ProjectsData = [
     date: 'Jan 1, 2025 - Jan 25, 2025',
     projectInfo:
       'Enhancing IBM’s cybersecurity measures to protect sensitive data and infrastructure from advanced threats and breaches.',
+    projectCode: 'CYBERSEC-2025',
     Options: [
       {id: 1, name: 'Add Photo'},
       {id: 2, name: 'View Project Details'},
@@ -73,6 +77,7 @@ const ProjectsData = [
     date: 'Feb 1, 2025 - Feb 28, 2025',
     projectInfo:
       'Revamping Facebook’s data analytics platform to provide faster insights and better data-driven decision-making capabilities.',
+    projectCode: 'DATA-ANA-2025',
     Options: [
       {id: 1, name: 'Add Photo'},
       {id: 2, name: 'View Project Details'},
@@ -87,6 +92,7 @@ const ProjectsData = [
     date: 'Mar 1, 2025 - Mar 30, 2025',
     projectInfo:
       'Redesigning Shopify’s e-commerce platform to improve user experience, boost performance, and add innovative features for merchants.',
+    projectCode: 'SHOP-RED-2025',
     Options: [
       {id: 1, name: 'Add Photo'},
       {id: 2, name: 'View Project Details'},
@@ -95,6 +101,7 @@ const ProjectsData = [
     ],
   },
 ];
+
 
 const Projects = () => {
   return (

@@ -20,6 +20,7 @@ const CustomInput = ({
   onChange,
   isPassword,
   isPhoneInput,
+  placeholderText,
 }) => {
   const [isSecure, setIsSecure] = useState(true);
 
@@ -40,7 +41,7 @@ const CustomInput = ({
             defaultCode="US"
             layout="second"
             textInputProps={{
-              ...inputConfigurations
+              ...inputConfigurations,
             }}
           />
         ) : (
@@ -52,6 +53,7 @@ const CustomInput = ({
             autoCorrect={false}
             autoComplete="off"
             secureTextEntry={isPassword && isSecure}
+            placeholder={placeholderText}
           />
         )}
 
@@ -121,7 +123,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F8F8F8',
     justifyContent: 'center',
     alignItems: 'center',
-    padding:0,
+    padding: 0,
   },
   phoneTextContainer: {
     backgroundColor: 'transparent',
@@ -129,12 +131,12 @@ const styles = StyleSheet.create({
     // paddingHorizontal: 8,
     borderLeftWidth: 1,
     borderColor: '#D7D8DC',
-    maxHeight:60,
-    padding:0
+    maxHeight: 60,
+    padding: 0,
   },
   phoneTextInput: {
     fontSize: 16,
     color: '#000',
-    padding:0
+    padding: 0,
   },
 });

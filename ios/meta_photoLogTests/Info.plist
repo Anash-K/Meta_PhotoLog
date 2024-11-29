@@ -20,5 +20,15 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+
+	<!-- Add these lines to request file picker permissions -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Your app requires access to the photo library for document selection.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Your app requires access to the camera for document scanning.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Your app requires access to the microphone.</string>
+	<key>NSDocumentPickerUsageDescription</key>
+	<string>Your app requires access to documents.</string>
 </dict>
 </plist>

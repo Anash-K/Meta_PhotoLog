@@ -13,20 +13,20 @@ import moreIcon from '../assets/images/more.png';
 import BackCustomButton from '../components/ui/BackCustomIcon';
 import ProjectMap from '../screens/ProjectMap';
 import CreateProject from '../components/ui/CreateProject';
+import CustomScreenNavigator from '../utils/CustomScreenNavigator';
 
 const Stack = createNativeStackNavigator();
 
 export const Navigation = () => {
+  const navigator = useNavigation();
+
   const handlePress = () => {};
 
+  const handleNav = (PageName) =>{
+    navigator.navigate(PageName);
+  }
+
   return (
-    <SafeAreaProvider style={{flex: 1}}>
-      <StatusBar
-        translucent
-        backgroundColor="transparent"
-        barStyle="light-content"
-      />
-      <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
             component={Login}
@@ -115,8 +115,6 @@ export const Navigation = () => {
             }}
           />
         </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
   );
 };
 

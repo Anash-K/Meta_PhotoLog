@@ -1,0 +1,17 @@
+export const images = {
+    chatTabIcon: require('./images/ChatTabIcon.png'),
+    ProjectTabIcon: require('./images/ActiveProjectIcon.png'),
+    PhotosTabIcon: require('./images/Photos.png'),
+    MainMenuTabIcon: require('./images/MainMenu.png'),
+    selectedIcon: require('./images/Selected.png'),
+    unselectedIcon: require('./images/notSelected.png'),
+    demoImage1: require('./images/image1.png'),
+    demoImage2: require('./images/image2.png'),
+    demoImage3: require('./images/image3.png'),
+    demoImage4: require('./images/image4.png'),
+    demoImage5: require('./images/image5.png'),
+    demoImage6: require('./images/image6.png'),
+    demoImage7: require('./images/image7.png'),
+    demoImage8: require('./images/image1.png'),
+    detailsImage: require('./images/detailsImg.png'),
+}

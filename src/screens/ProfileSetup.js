@@ -24,6 +24,9 @@ const ProjectSetup = () => {
   };
 
   const handleForwardPush = () => {
+    console.log(navigator);
+    navigator.navigate('ProjectMap');
+    
     navigator.navigate("BottomNav");
   };
 

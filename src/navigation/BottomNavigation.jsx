@@ -1,5 +1,5 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {StyleSheet, View} from 'react-native';
+import {Platform, StyleSheet, View} from 'react-native';
 import CustomIcon from '../components/ui/CustomIcon';
 import CustomButton from '../components/ui/CustomButton';
 import {GlobalColors} from '../constants/Colors';
@@ -7,8 +7,9 @@ import Projects from '../screens/Projects';
 import ProjectsIcon from '../assets/images/ProjectsIcon.png';
 import {useNavigation} from '@react-navigation/native';
 import Photos from '../screens/Photos';
-import ProjectsActiveIcon from '../assets/images/ProjectActiveIcon.png';
-import ProjectCustomSVGIcon from '../components/ProjectCustomIcon';
+import {images} from '../assets';
+import PhotoLog from '../screens/PhotoLog';
+import MainMenu from '../screens/MainMenu';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -28,14 +29,19 @@ export const BottomNav = () => {
           headerStyle: {backgroundColor: GlobalColors.primaryBase, height: 120},
           headerTintColor: '#FFFFFF',
           tabBarActiveTintColor: '#FFFFFF',
+          tabBarInactiveTintColor: ' rgba(255, 255, 255, 0.5)',
           tabBarLabel: () => null,
           tabBarIconStyle: {
             height: 37,
             justifyContent: 'center',
             alignItems: 'center',
             width: 50,
+            marginTop: 5,
           },
-          // tabBarStyle: {height: 100, padding: 15},
+          tabBarStyle: {
+            height: Platform.select({ios: 90, android: 60}),
+            padding: 15,
+          },
           tabBarBackground: () => (
             <View
               style={{backgroundColor: GlobalColors.primaryBase, flex: 1}}
@@ -53,13 +59,13 @@ export const BottomNav = () => {
                   backgroundColor: focused ? '#FFFFFF26' : 'transparent',
                   borderRadius: 40,
                   paddingHorizontal: 19,
-                  paddingTop: 5,
+                  paddingTop: 3,
                   justifyContent: 'center',
                   alignItems: 'center',
                 }}>
                 <CustomIcon
-                  srcPath={<ProjectCustomSVGIcon color='red' />}
-                  size={size}
+                  srcPath={images.ProjectTabIcon}
+                  size={30}
                   color={color}
                   OnPressAction={handlePress}
                 />
@@ -84,13 +90,97 @@ export const BottomNav = () => {
           name="Photos"
           options={{
             title: 'Photos',
-            tabBarIcon: ({color, size}) => (
-              <CustomIcon
-                srcPath={ProjectsIcon}
-                size={size}
-                color={color}
-                OnPressAction={handlePress}
+            tabBarIcon: ({color, size, focused}) => (
+              <View
+                style={{
+                  backgroundColor: focused ? '#FFFFFF26' : 'transparent',
+                  borderRadius: 40,
+                  paddingHorizontal: 19,
+                  paddingTop: 3,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <CustomIcon
+                  srcPath={images.PhotosTabIcon}
+                  size={30}
+                  color={color}
+                  OnPressAction={handlePress}
+                />
+              </View>
+            ),
+            headerLeft: () => null,
+            headerTitleAlign: 'left',
+            headerTitleStyle: styles.navHeaderTitle,
+            headerRight: () => (
+              <CustomButton
+                containerStyle={styles.headerRightContainer}
+                pressableContainerStyle={styles.headerRightIcon}
+                OnPressAction={handleNav}
+                buttonTitle={'+ Add Photo'}
+                InnerTextStyle={styles.headerRightIconText}
               />
+            ),
+          }}
+        />
+        <BottomTab.Screen
+          component={PhotoLog}
+          name="PhotoLog"
+          options={{
+            title: 'Photo Log',
+            tabBarIcon: ({color, size, focused}) => (
+              <View
+                style={{
+                  backgroundColor: focused ? '#FFFFFF26' : 'transparent',
+                  borderRadius: 40,
+                  paddingHorizontal: 19,
+                  paddingTop: 3,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <CustomIcon
+                  srcPath={images.chatTabIcon}
+                  size={30}
+                  color={color}
+                  OnPressAction={handlePress}
+                />
+              </View>
+            ),
+            headerLeft: () => null,
+            headerTitleAlign: 'left',
+            headerTitleStyle: styles.navHeaderTitle,
+            headerRight: () => (
+              <CustomButton
+                containerStyle={styles.headerRightContainer}
+                pressableContainerStyle={styles.headerRightIcon}
+                OnPressAction={handleNav}
+                buttonTitle={'+ Add Photo'}
+                InnerTextStyle={styles.headerRightIconText}
+              />
+            ),
+          }}
+        />
+        <BottomTab.Screen
+          component={MainMenu}
+          name="MainMenu"
+          options={{
+            title: 'Main Menu',
+            tabBarIcon: ({color, size, focused}) => (
+              <View
+                style={{
+                  backgroundColor: focused ? '#FFFFFF26' : 'transparent',
+                  borderRadius: 40,
+                  paddingHorizontal: 19,
+                  paddingTop: 3,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <CustomIcon
+                  srcPath={images.MainMenuTabIcon}
+                  size={30}
+                  color={color}
+                  OnPressAction={handlePress}
+                />
+              </View>
             ),
             headerLeft: () => null,
             headerTitleAlign: 'left',

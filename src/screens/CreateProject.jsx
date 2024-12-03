@@ -1,8 +1,8 @@
 import {KeyboardAvoidingView, StyleSheet, Text, View} from 'react-native';
 import {Pressable, ScrollView} from 'react-native-gesture-handler';
-import CustomButton from './CustomButton';
+import CustomButton from '../components/ui/CustomButton';
 import {useNavigation} from '@react-navigation/native';
-import CustomInput from './CustomInput';
+import CustomInput from '../components/ui/CustomInput';
 import DocumentPicker from 'react-native-document-picker';
 import {useLayoutEffect, useState} from 'react';
 
@@ -48,7 +48,7 @@ const CreateProject = ({route}) => {
     <View style={styles.container}>
       <KeyboardAvoidingView
         style={{flex: 1}}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'padding'}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 40}>
         <ScrollView
           style={{flex: 1}}

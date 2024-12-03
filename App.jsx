@@ -8,6 +8,8 @@ console.error = () =>{
 
 }
 
+export const navigationRef = React.createRef()
+
 function App() {
   return (
     <SafeAreaProvider style={{flex: 1}}>
@@ -16,7 +18,7 @@ function App() {
         backgroundColor="transparent"
         barStyle="light-content"
       />
-      <NavigationContainer>
+      <NavigationContainer ref={navigationRef} >
         <Navigation />
       </NavigationContainer>
     </SafeAreaProvider>

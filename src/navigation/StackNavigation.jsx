@@ -1,6 +1,12 @@
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {StatusBar, StyleSheet} from 'react-native';
+import {
+  Image,
+  Pressable,
+  StatusBar,
+  StyleSheet,
+  View,
+} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import Login from '../screens/Login';
 import CreateAccount from '../screens/CreateAccount';
@@ -12,11 +18,14 @@ import CustomButton from '../components/ui/CustomButton';
 import moreIcon from '../assets/images/more.png';
 import BackCustomButton from '../components/ui/BackCustomIcon';
 import ProjectMap from '../screens/ProjectMap';
-import CreateProject from '../components/ui/CreateProject';
+import CreateProject from '../screens/CreateProject';
 import CustomScreenNavigator from '../utils/CustomScreenNavigator';
 import CapturePhotos from '../screens/CapturePhotos';
 import EditPhoto from '../screens/EditPhoto';
 import backIcon from '../assets/images/backIcon.png';
+import {images} from '../assets';
+import { navigationRef } from '../../App';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +37,11 @@ export const Navigation = () => {
   const handleNav = PageName => {
     navigator.navigate(PageName);
   };
+
+  const goBack = () => {
+    console.log('object')
+    navigationRef.current?.goBack();
+  }
 
   return (
     <Stack.Navigator
@@ -51,15 +65,25 @@ export const Navigation = () => {
           />
         ),
         headerLeft: () => (
-          <CustomButton
-            OnPressAction={() => navigation.goBack()}
-            Icon={backIcon}
-            IconStyle={styles.backButtonIcon}
-            pressableContainerStyle={styles.backButtonStyle}
-            containerStyle={{margin: 0, padding: 0}}
-            pressableStyle={styles.backButtonContainer}
-            InnerTextStyle={{fontSize: 1}}
-          />
+          <TouchableOpacity onPress={goBack} style={{padding:12}} >
+            <View style={styles.backButton}>
+            <Image
+              source={images.backGreenIcon}
+              style={styles.backIconStyle}
+              resizeMode="contain"
+            />
+          </View>
+          </TouchableOpacity>
+
+          // <CustomButton
+          //   OnPressAction={() => navigation.goBack()}
+          //   Icon={backIcon}
+          //   IconStyle={styles.backButtonIcon}
+          //   pressableContainerStyle={styles.backButtonStyle}
+          //   // containerStyle={{margin: 0, padding: 0}}
+          //   pressableStyle={styles.backButtonContainer}
+          //   InnerTextStyle={{fontSize: 1}}
+          // />
         ),
       })}>
       <Stack.Screen
@@ -157,19 +181,21 @@ const styles = StyleSheet.create({
   headerTitleLook: {
     fontSize: 24,
     fontFamily: 'OpenSans-Bold',
+    backgroundColor:'red'
   },
   backButtonIcon: {
     width: 9,
-    height: 13,
     color: GlobalColors.primaryBase,
   },
 
   backButtonStyle: {
     margin: 0,
-    padding: 0,
+    paddingHorizontal: 9,
+    paddingVertical: 3,
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 40,
   },
   backButtonContainer: {
     margin: 0,
@@ -177,5 +203,17 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  backIconStyle: {
+    width: 9,
+  },
+  backButton: {
+    paddingHorizontal: 8,
+    paddingVertical: 1,
+    borderRadius: 40,
+    width: 27,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItemsL: 'center',
   },
 });

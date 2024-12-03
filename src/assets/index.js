@@ -21,4 +21,5 @@ export const images = {
     dateIcon: require('./images/dateIcon.png'),
     blackMoreIcon: require('./images/blackMore.png'),
     blackBackIcon: require('./images/blackreturn.png'),
+    backGreenIcon: require('./images/backIcon.png'),
 }

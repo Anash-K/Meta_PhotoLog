@@ -23,7 +23,7 @@ const CustomButton = ({
         ]}
         onPress={OnPressAction}>
         {({pressed}) => (
-          <View style={[styles.innerContainer, pressableStyle]} onPress={OnPressAction}>
+          <>
             {Icon && (
               <Image
                 source={Icon}
@@ -39,7 +39,7 @@ const CustomButton = ({
               ]}>
               {buttonTitle}
             </Text>
-          </View>
+           </>
         )}
       </Pressable>
     </View>
@@ -56,15 +56,13 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 14,
     backgroundColor: GlobalColors.primaryBase,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
     fontFamily: 'OpenSans-Semibold',
     fontSize: 16,
     color: 'white',
-  },
-  innerContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   buttonPressed: {
     opacity: 0.75,

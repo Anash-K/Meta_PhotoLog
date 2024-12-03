@@ -18,19 +18,17 @@ import CustomButton from '../components/ui/CustomButton';
 import {GlobalColors} from '../constants/Colors';
 import {useNavigation} from '@react-navigation/native';
 
-const Login = () => {
-  const navigator = useNavigation();
-
+const Login = ({navigation}) => {
   const handleChange = text => {
     console.log(text);
   };
 
   const handleSubmit = () => {
-    navigator.navigate('createAccount');
+    navigation.navigate('createAccount');
   };
 
   const handleCreateAccount = () => {
-    navigator.navigate('createAccount');
+    navigation.navigate('createAccount');
   };
 
   return (

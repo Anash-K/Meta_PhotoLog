@@ -13,5 +13,12 @@ export const images = {
     demoImage6: require('./images/image6.png'),
     demoImage7: require('./images/image7.png'),
     demoImage8: require('./images/image1.png'),
-    detailsImage: require('./images/detailsImg.png'),
+    detailsImage: require('./images/more.png'),
+    capturedImage: require('./images/CaptureImage.png'),
+    camera: require('./images/camera.png'),
+    location: require('./images/locationIcon.png'),
+    timeIcon: require('./images/Icon-Eyes.png'),
+    dateIcon: require('./images/dateIcon.png'),
+    blackMoreIcon: require('./images/blackMore.png'),
+    blackBackIcon: require('./images/blackreturn.png'),
 }

@@ -28,7 +28,8 @@ const ProjectDetails = ({route}) => {
     <ScrollView
       style={{flex: 1}}
       contentContainerStyle={{flexGrow: 1}}
-      overScrollMode="auto">
+      overScrollMode="auto"
+      showsVerticalScrollIndicator={false}>
       <View style={styles.container}>
         <View style={styles.frame}>
           <Image source={mapFrame} resizeMode="cover" style={styles.mapFrame} />
@@ -80,8 +81,6 @@ const ProjectDetails = ({route}) => {
           buttonTitle={'Add Photo'}
           containerStyle={{flex: 1}}
           InnerTextStyle={{color: GlobalColors.primaryBase}}
-          //   PressedTextStyle={{color: 'white'}}
-          //   customPressedButton={{backgroundColor: GlobalColors.primaryBase}}
           pressableContainerStyle={{
             backgroundColor: 'rgba(0, 109, 119, 0.15)',
             opacity: 1,

@@ -23,7 +23,7 @@ const CustomButton = ({
         ]}
         onPress={OnPressAction}>
         {({pressed}) => (
-          <View style={[styles.innerContainer, pressableStyle]}>
+          <View style={[styles.innerContainer, pressableStyle]} onPress={OnPressAction}>
             {Icon && (
               <Image
                 source={Icon}

@@ -1,13 +1,11 @@
-import { View } from "react-native"
-import { Text } from "react-native-svg"
+import {Text, View} from 'react-native';
 
-
-const MainMenu = () =>{
-    return (
-        <View>
-            <Text>Main Menu</Text>
-        </View>
-    )
+const MainMenu = () => {
+  return (
+    <View>
+      <Text>Main Menu</Text>
+    </View>
+  );
 };
 
 export default MainMenu;

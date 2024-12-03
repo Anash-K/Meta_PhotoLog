@@ -5,6 +5,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 import CustomPhotosCard from '../components/ui/CustomPhotosCard';
 import {images} from '../assets';
 import CustomButton from '../components/ui/CustomButton';
+import { useNavigation } from '@react-navigation/native';
 
 const data = [
   {label: 'Item 1', value: '1'},
@@ -42,6 +43,8 @@ const Photos = () => {
   const [value, setValue] = useState('Search Project');
   const [isFocus, setIsFocus] = useState(false);
   const [photosData, setPhotosData] = useState(PhotosData);
+  const navigator = useNavigation();
+
 
   const handleChange = item => {
     setValue(item.value);
@@ -68,7 +71,9 @@ const Photos = () => {
     setPhotosData(updatedData);
   };
 
-  const handlePress = () => {};
+  const handlePress = () => {
+    navigator.navigate('EditPhoto')
+  };
 
   const renderItem = item => (
     <View style={styles.item}>
@@ -96,7 +101,8 @@ const Photos = () => {
       </View>
       <ScrollView
         contentContainerStyle={{flexGrow: 1, width: '100%'}}
-        style={{width: '100%'}}>
+        style={{width: '100%'}}
+        showsVerticalScrollIndicator={false}>
         <View style={{flex: 1, width: '100%'}}>
           <FlatList
             data={photosData}
@@ -131,12 +137,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 14,
+    paddingTop: 18,
     backgroundColor: '#FAFAFA',
   },
   top: {
     width: '100%',
-    paddingTop: 16,
     paddingHorizontal: 14,
     marginBottom: 10,
   },
@@ -152,6 +157,7 @@ const styles = StyleSheet.create({
   placeholderStyle: {
     fontSize: 16,
     color: '#292D32',
+    fontFamily: 'OpenSans-Regular',
   },
   selectedTextStyle: {
     fontSize: 16,
@@ -162,6 +168,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     backgroundColor: '#f0f0f0',
     color: '#292D32',
+    fontFamily: 'OpenSans-Regular',
   },
   iconStyle: {
     width: 25,
@@ -176,5 +183,6 @@ const styles = StyleSheet.create({
   textItem: {
     fontSize: 16,
     color: 'black',
+    fontFamily: 'OpenSans-Regular',
   },
 });

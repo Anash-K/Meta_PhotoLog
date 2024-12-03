@@ -16,18 +16,18 @@ import backIcon from '../assets/images/backIcon.png';
 import CustomInput from '../components/ui/CustomInput';
 import CustomButton from '../components/ui/CustomButton';
 import {useNavigation} from '@react-navigation/native';
+import {images} from '../assets';
 
 const ProjectSetup = () => {
   const navigator = useNavigation();
 
-  const handleChange = () => {
-  };
+  const handleChange = () => {};
 
   const handleForwardPush = () => {
     console.log(navigator);
     navigator.navigate('ProjectMap');
-    
-    navigator.navigate("BottomNav");
+
+    navigator.navigate('BottomNav');
   };
 
   const handleBackNav = () => {
@@ -39,28 +39,27 @@ const ProjectSetup = () => {
       source={BgImage}
       style={styles.container}
       resizeMode="cover">
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.backButton} onPress={handleBackNav}>
+          <Image
+            source={images.blackBackIcon}
+            style={styles.backImage}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
+        <PageTitle titleBoxStyle={{flex: 1}} textStyle={styles.title}>
+          Profile Setup
+        </PageTitle>
+      </View>
       <KeyboardAvoidingView
         style={{flex: 1}}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView
           contentContainerStyle={{flexGrow: 1}}
           style={{flex: 1}}
-          keyboardShouldPersistTaps="handled">
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}>
           <View style={styles.content}>
-            <View style={styles.header}>
-              <TouchableOpacity
-                style={styles.backButton}
-                onPress={handleBackNav}>
-                <Image
-                  source={backIcon}
-                  style={styles.backImage}
-                  resizeMode="contain"
-                />
-              </TouchableOpacity>
-              <PageTitle titleBoxStyle={{flex: 1}} textStyle={styles.title}>
-                Profile Setup
-              </PageTitle>
-            </View>
             <View style={styles.form}>
               <CustomInput label={'First Name'} onChange={handleChange} />
               <CustomInput label={'Last Name'} onChange={handleChange} />
@@ -70,20 +69,23 @@ const ProjectSetup = () => {
                 isPhoneInput={true}
                 onChange={handleChange}
                 inputConfigurations={{
-                    keyboardType: 'phone-pad',
-                    maxLength: 12,
+                  keyboardType: 'phone-pad',
+                  maxLength: 12,
                 }}
               />
               <CustomInput label={'Email'} onChange={handleChange} />
             </View>
-            <CustomButton
-              containerStyle={{marginBottom: 25}}
-              buttonTitle={'Continue'}
-              OnPressAction={handleForwardPush}
-            />
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
+      <CustomButton
+        containerStyle={{
+          paddingTop: 10,
+          marginBottom: Platform.select({ios: 25, android: 15}),
+        }}
+        buttonTitle={'Continue'}
+        OnPressAction={handleForwardPush}
+      />
     </ImageBackground>
   );
 };
@@ -102,19 +104,20 @@ const styles = StyleSheet.create({
   backButton: {
     backgroundColor: '#FFFFFF80',
     width: 'fit',
-    paddingVertical: 5,
-    paddingHorizontal: 15,
+    paddingVertical: 2,
+    paddingHorizontal: 13,
     borderRadius: '50%',
     position: 'absolute',
     left: 10,
   },
   backImage: {
-    width: 12,
+    width: 11,
   },
   header: {
     flexDirection: 'row',
     marginTop: 50,
     alignItems: 'center',
+    marginBottom: 20,
   },
   form: {
     flexGrow: 1,

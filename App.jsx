@@ -4,9 +4,9 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 
-// console.error = () =>{
+console.error = () =>{
 
-// }
+}
 
 function App() {
   return (

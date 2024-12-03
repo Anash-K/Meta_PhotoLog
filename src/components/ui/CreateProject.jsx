@@ -50,7 +50,10 @@ const CreateProject = ({route}) => {
         style={{flex: 1}}
         behavior={Platform.OS === 'ios' ? 'padding' : 'padding'}
         keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 40}>
-        <ScrollView style={{flex: 1}} contentContainerStyle={{flexGrow: 1}}>
+        <ScrollView
+          style={{flex: 1}}
+          contentContainerStyle={{flexGrow: 1}}
+          showsVerticalScrollIndicator={false}>
           <View style={styles.content}>
             <View style={styles.buttonContainer}>
               <Pressable style={styles.addButton} onPress={handleSelect}>

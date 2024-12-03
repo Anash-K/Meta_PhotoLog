@@ -14,6 +14,9 @@ import BackCustomButton from '../components/ui/BackCustomIcon';
 import ProjectMap from '../screens/ProjectMap';
 import CreateProject from '../components/ui/CreateProject';
 import CustomScreenNavigator from '../utils/CustomScreenNavigator';
+import CapturePhotos from '../screens/CapturePhotos';
+import EditPhoto from '../screens/EditPhoto';
+import backIcon from '../assets/images/backIcon.png';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,99 +25,127 @@ export const Navigation = () => {
 
   const handlePress = () => {};
 
-  const handleNav = (PageName) =>{
+  const handleNav = PageName => {
     navigator.navigate(PageName);
-  }
+  };
 
   return (
-        <Stack.Navigator>
-          <Stack.Screen
-            component={Login}
-            name="login"
-            options={{
-              headerShown: false,
-            }}
+    <Stack.Navigator
+      screenOptions={({navigation}) => ({
+        headerStyle: {
+          backgroundColor: GlobalColors.primaryBase,
+          height: 100,
+        },
+        headerTintColor: 'white',
+        headerTitleAlign: 'center',
+        headerTitleStyle: styles.headerTitleLook,
+        contentStyle: {backgroundColor: '#fff'},
+        headerRight: () => (
+          <CustomButton
+            OnPressAction={handlePress}
+            Icon={moreIcon}
+            IconStyle={styles.rightIconStyle}
+            pressableContainerStyle={{margin: 0, padding: 0}}
+            containerStyle={{margin: 0, padding: 0}}
+            InnerTextStyle={{fontSize: 1}}
           />
-          <Stack.Screen
-            component={CreateAccount}
-            name="createAccount"
-            options={{
-              headerShown: false,
-            }}
+        ),
+        headerLeft: () => (
+          <CustomButton
+            OnPressAction={() => navigation.goBack()}
+            Icon={backIcon}
+            IconStyle={styles.backButtonIcon}
+            pressableContainerStyle={styles.backButtonStyle}
+            containerStyle={{margin: 0, padding: 0}}
+            pressableStyle={styles.backButtonContainer}
+            InnerTextStyle={{fontSize: 1}}
           />
-          <Stack.Screen
-            component={ProjectSetup}
-            name="projectSetup"
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            component={BottomNav}
-            name="BottomNav"
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            component={ProjectDetails}
-            name="ProjectDetails"
-            options={{
-              headerStyle: {
-                backgroundColor: GlobalColors.primaryBase,
-                height: 150,
-              },
-              headerTintColor: 'white',
-              headerTitleAlign: 'center',
-              headerTitleStyle: styles.headerTitleLook,
-              headerTitle: 'Project Detail',
-              contentStyle: {backgroundColor: '#fff'},
-              headerRight: () => (
-                <CustomButton
-                  OnPressAction={handlePress}
-                  Icon={moreIcon}
-                  IconStyle={styles.rightIconStyle}
-                  pressableContainerStyle={{margin: 0, padding: 0}}
-                  containerStyle={{margin: 0, padding: 0}}
-                  InnerTextStyle={{fontSize: 1}}
-                />
-              ),
-              headerLeft: ({navigation}) => <BackCustomButton />,
-            }}
-          />
-          <Stack.Screen
-            component={ProjectMap}
-            name="ProjectMap"
-            options={{
-              headerStyle: {
-                backgroundColor: GlobalColors.primaryBase,
-                height: 150,
-              },
-              headerTintColor: 'white',
-              headerTitleAlign: 'center',
-              headerTitleStyle: styles.headerTitleLook,
-              headerTitle: 'Project Map',
-              contentStyle: {backgroundColor: '#fff'},
-              headerLeft: ({navigation}) => <BackCustomButton />,
-            }}
-          />
-          <Stack.Screen
-            component={CreateProject}
-            name="CreateProject"
-            options={{
-              headerStyle: {
-                backgroundColor: GlobalColors.primaryBase,
-                height: 150,
-              },
-              headerTintColor: 'white',
-              headerTitleAlign: 'center',
-              headerTitleStyle: styles.headerTitleLook,
-              headerTitle: 'Create Project',
-              contentStyle: {backgroundColor: '#fff'},
-              headerLeft: ({navigation}) => <BackCustomButton />,
-            }}
-          />
-        </Stack.Navigator>
+        ),
+      })}>
+      <Stack.Screen
+        component={Login}
+        name="login"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        component={CreateAccount}
+        name="createAccount"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        component={ProjectSetup}
+        name="projectSetup"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        component={BottomNav}
+        name="BottomNav"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        component={ProjectDetails}
+        name="ProjectDetails"
+        options={{
+          headerTitle: 'Project Detail',
+          headerRight: () => (
+            <CustomButton
+              OnPressAction={handlePress}
+              Icon={moreIcon}
+              IconStyle={styles.rightIconStyle}
+              pressableContainerStyle={{margin: 0, padding: 0}}
+              containerStyle={{margin: 0, padding: 0}}
+              InnerTextStyle={{fontSize: 1}}
+            />
+          ),
+        }}
+      />
+      <Stack.Screen
+        component={ProjectMap}
+        name="ProjectMap"
+        options={{
+          headerTitleAlign: 'center',
+          headerTitle: 'Project Map',
+        }}
+      />
+      <Stack.Screen
+        component={CreateProject}
+        name="CreateProject"
+        options={{
+          headerTitle: 'Create Project',
+          contentStyle: {backgroundColor: '#fff'},
+        }}
+      />
+      <Stack.Screen
+        component={CapturePhotos}
+        name="CapturePhotos"
+        options={{
+          title: 'Capture Photos',
+          headerStyle: {
+            backgroundColor: GlobalColors.primaryBase,
+            height: 300,
+          },
+        }}
+      />
+      <Stack.Screen
+        component={EditPhoto}
+        name="EditPhoto"
+        options={{
+          title: 'Edit Photo',
+          headerStyle: {
+            backgroundColor: GlobalColors.primaryBase,
+            height: 300,
+          },
+        }}
+      />
+    </Stack.Navigator>
   );
 };
 
@@ -126,5 +157,25 @@ const styles = StyleSheet.create({
   headerTitleLook: {
     fontSize: 24,
     fontFamily: 'OpenSans-Bold',
+  },
+  backButtonIcon: {
+    width: 9,
+    height: 13,
+    color: GlobalColors.primaryBase,
+  },
+
+  backButtonStyle: {
+    margin: 0,
+    padding: 0,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  backButtonContainer: {
+    margin: 0,
+    paddingHorizontal: 8,
+    paddingVertical: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

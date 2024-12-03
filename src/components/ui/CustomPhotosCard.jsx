@@ -1,4 +1,11 @@
-import {View, Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Platform,
+} from 'react-native';
 import {images as CustomImages} from '../../assets';
 
 const CustomPhotosCard = ({
@@ -9,7 +16,6 @@ const CustomPhotosCard = ({
   toggleAllImagesSelection,
   itemIndex,
 }) => {
-  console.log(images, 'fdbfebdk');
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -52,10 +58,13 @@ const CustomPhotosCard = ({
                   style={styles.selectedIcon}
                   resizeMode="contain"
                 />
-                <Image
-                  source={CustomImages.detailsImage}
-                  style={styles.selectedIcon}
-                />
+                <View style={styles.deleteIconContainer}>
+                  <Image
+                    source={CustomImages.detailsImage}
+                    style={[styles.selectedIcon, styles.detailsIcon]}
+                    resizeMode="contain"
+                  />
+                </View>
               </View>
             </View>
           </TouchableOpacity>
@@ -116,7 +125,14 @@ const styles = StyleSheet.create({
     top: 5,
     justifyContent: 'space-between',
     flexDirection: 'row',
-    width:'100%',
-    paddingHorizontal:10
+    width: '100%',
+    paddingHorizontal: 10,
   },
+  detailsIcon: {
+    backgroundColor: 'rgba(0, 0, 0, 0.25)',
+    padding: Platform.select({ios: 3.5}),
+    borderRadius: 10,
+  },deleteIconContainer:{
+
+  }
 });

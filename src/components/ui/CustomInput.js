@@ -21,6 +21,11 @@ const CustomInput = ({
   isPassword,
   isPhoneInput,
   placeholderText,
+  handleIconAction,
+  showIcon,
+  iconSource,
+  iconStyle,
+  customPressableStyle
 }) => {
   const [isSecure, setIsSecure] = useState(true);
 
@@ -71,6 +76,21 @@ const CustomInput = ({
             />
           </Pressable>
         )}
+
+        {showIcon && (
+          <Pressable
+            onPress={handleIconAction}
+            style={({pressed}) => [
+              styles.pressableButton,customPressableStyle,
+              pressed && styles.pressed,
+            ]}>
+            <Image
+              source={iconSource}
+              style={[styles.iconEye,iconStyle]}
+              resizeMode="contain"
+            />
+          </Pressable>
+        )}
       </View>
     </View>
   );
@@ -90,12 +110,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     fontSize: 16,
     flex: 1,
+    lineHeight:21,
+    fontFamily: 'OpenSans-Regular',
   },
   label: {
     textTransform: 'capitalize',
     fontSize: 14,
-    fontFamily: 'OpenSans-Semibold',
+    fontFamily:'Urbanist-SemiBold',
     marginBottom: 10,
+    lineHeight:21
   },
   iconEye: {
     width: 20,
@@ -105,7 +128,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '50%',
     right: 12,
-    transform: [{translateY: -10}],
+    transform: [{translateY: '-50%'}],
   },
   pressed: {
     opacity: 0.7,

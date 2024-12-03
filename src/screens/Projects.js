@@ -156,6 +156,7 @@ const styles = StyleSheet.create({
     color: '#A0A5AD',
     fontSize: 16,
     fontFamily: 'OpenSans-Regular',
+    flex:1,
   },
   searchIcon: {
     width: 18,

@@ -1,5 +1,5 @@
 import {Text, View, StyleSheet, FlatList} from 'react-native';
-import {useState} from 'react';
+import {useLayoutEffect, useState} from 'react';
 import {Dropdown} from 'react-native-element-dropdown';
 import {ScrollView} from 'react-native-gesture-handler';
 import CustomPhotosCard from '../components/ui/CustomPhotosCard';
@@ -44,6 +44,12 @@ const Photos = () => {
   const [isFocus, setIsFocus] = useState(false);
   const [photosData, setPhotosData] = useState(PhotosData);
   const navigator = useNavigation();
+
+  useLayoutEffect(() =>{
+    navigator.setOptions({
+      headerTitle: 'Add Photos',
+    })
+  },[]);
 
 
   const handleChange = item => {

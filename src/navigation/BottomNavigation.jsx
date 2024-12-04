@@ -38,7 +38,11 @@ export const BottomNav = () => {
     <View style={{flex: 1}}>
       <BottomTab.Navigator
         screenOptions={({navigation}) => ({
-          headerStyle: {backgroundColor: GlobalColors.primaryBase, height: 120},
+          tabBarHideOnKeyboard: true,
+          headerStyle: {
+            backgroundColor: GlobalColors.primaryBase,
+            height: Platform.select({ios: 120}),
+          },
           headerTintColor: '#FFFFFF',
           tabBarActiveTintColor: '#FFFFFF',
           tabBarInactiveTintColor: ' rgba(255, 255, 255, 0.5)',
@@ -51,7 +55,7 @@ export const BottomNav = () => {
           },
           tabBarStyle: {
             padding: 15,
-            backgroundColor: GlobalColors.primaryBase
+            backgroundColor: GlobalColors.primaryBase,
           },
           headerTitleAlign: 'left',
           headerTitleStyle: styles.navHeaderTitle,
@@ -66,7 +70,9 @@ export const BottomNav = () => {
               <CustomButton
                 containerStyle={styles.headerRightContainer}
                 pressableContainerStyle={styles.headerRightIcon}
-                OnPressAction={() => {navigation.navigate('CreateProject')}}
+                OnPressAction={() => {
+                  navigation.navigate('CreateProject');
+                }}
                 buttonTitle={'+  New project'}
                 InnerTextStyle={styles.headerRightIconText}
               />
@@ -83,7 +89,9 @@ export const BottomNav = () => {
               <CustomButton
                 containerStyle={styles.headerRightContainer}
                 pressableContainerStyle={styles.headerRightIcon}
-                OnPressAction={() => {navigation.navigate('CapturePhotos')}}
+                OnPressAction={() => {
+                  navigation.navigate('CapturePhotos');
+                }}
                 buttonTitle={'+ Add Photo'}
                 InnerTextStyle={styles.headerRightIconText}
               />
@@ -93,10 +101,21 @@ export const BottomNav = () => {
         <BottomTab.Screen
           component={PhotoLog}
           name="PhotoLog"
-          options={{
-            title: 'Photo Log',
+          options={({navigation}) => ({
+            title: 'PhotoLogs',
             tabBarIcon: tabBarIcon.bind(this, images.chatTabIcon),
-          }}
+            headerRight: () => (
+              <CustomButton
+                containerStyle={styles.headerRightContainer}
+                pressableContainerStyle={styles.headerRightIcon}
+                OnPressAction={() => {
+                  navigation.navigate('CreatePhotoLog');
+                }}
+                buttonTitle={'+ New'}
+                InnerTextStyle={styles.headerRightIconText}
+              />
+            ),
+          })}
         />
         <BottomTab.Screen
           component={MainMenu}

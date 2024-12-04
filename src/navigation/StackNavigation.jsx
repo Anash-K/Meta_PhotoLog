@@ -1,13 +1,5 @@
-import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {
-  Image,
-  Pressable,
-  StatusBar,
-  StyleSheet,
-  View,
-} from 'react-native';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {Image, StyleSheet, View} from 'react-native';
 import Login from '../screens/Login';
 import CreateAccount from '../screens/CreateAccount';
 import ProjectSetup from '../screens/ProfileSetup';
@@ -16,39 +8,30 @@ import ProjectDetails from '../screens/ProjectDetails';
 import {GlobalColors} from '../constants/Colors';
 import CustomButton from '../components/ui/CustomButton';
 import moreIcon from '../assets/images/more.png';
-import BackCustomButton from '../components/ui/BackCustomIcon';
 import ProjectMap from '../screens/ProjectMap';
 import CreateProject from '../screens/CreateProject';
-import CustomScreenNavigator from '../utils/CustomScreenNavigator';
 import CapturePhotos from '../screens/CapturePhotos';
 import EditPhoto from '../screens/EditPhoto';
-import backIcon from '../assets/images/backIcon.png';
 import {images} from '../assets';
-import { navigationRef } from '../../App';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {navigationRef} from '../../App';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import CreatePhotoLog from '../screens/CreatePhotoLog';
 
 const Stack = createNativeStackNavigator();
 
 export const Navigation = () => {
-  const navigator = useNavigation();
-
   const handlePress = () => {};
 
-  const handleNav = PageName => {
-    navigator.navigate(PageName);
-  };
-
   const goBack = () => {
-    console.log('object')
     navigationRef.current?.goBack();
-  }
+  };
 
   return (
     <Stack.Navigator
       screenOptions={({navigation}) => ({
         headerStyle: {
           backgroundColor: GlobalColors.primaryBase,
-          height: 100,
+          // height: 100,
         },
         headerTintColor: 'white',
         headerTitleAlign: 'center',
@@ -65,25 +48,13 @@ export const Navigation = () => {
           />
         ),
         headerLeft: () => (
-          <TouchableOpacity onPress={goBack} style={{padding:12}} >
-            <View style={styles.backButton}>
+          <TouchableOpacity onPress={goBack} style={styles.backButton}>
             <Image
               source={images.backGreenIcon}
               style={styles.backIconStyle}
               resizeMode="contain"
             />
-          </View>
           </TouchableOpacity>
-
-          // <CustomButton
-          //   OnPressAction={() => navigation.goBack()}
-          //   Icon={backIcon}
-          //   IconStyle={styles.backButtonIcon}
-          //   pressableContainerStyle={styles.backButtonStyle}
-          //   // containerStyle={{margin: 0, padding: 0}}
-          //   pressableStyle={styles.backButtonContainer}
-          //   InnerTextStyle={{fontSize: 1}}
-          // />
         ),
       })}>
       <Stack.Screen
@@ -154,7 +125,6 @@ export const Navigation = () => {
           title: 'Capture Photos',
           headerStyle: {
             backgroundColor: GlobalColors.primaryBase,
-            height: 300,
           },
         }}
       />
@@ -165,7 +135,16 @@ export const Navigation = () => {
           title: 'Edit Photo',
           headerStyle: {
             backgroundColor: GlobalColors.primaryBase,
-            height: 300,
+          },
+        }}
+      />
+       <Stack.Screen
+        component={CreatePhotoLog}
+        name="CreatePhotoLog"
+        options={{
+          title: 'Create PhotoLog',
+          headerStyle: {
+            backgroundColor: GlobalColors.primaryBase,
           },
         }}
       />
@@ -181,7 +160,7 @@ const styles = StyleSheet.create({
   headerTitleLook: {
     fontSize: 24,
     fontFamily: 'OpenSans-Bold',
-    backgroundColor:'red'
+    backgroundColor: 'red',
   },
   backButtonIcon: {
     width: 9,

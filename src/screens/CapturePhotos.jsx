@@ -58,7 +58,7 @@ const CapturePhotos = () => {
               <View style={styles.left}>
                 <View style={styles.iconBox}>
                   <Image
-                    style={{padding: 3}}
+                    style={{width: 10}}
                     source={images.location}
                     tintColor={'white'}
                     resizeMode="contain"
@@ -96,7 +96,13 @@ const CapturePhotos = () => {
                 selectedTextStyle={styles.selectedTextStyle}
                 inputSearchStyle={styles.inputSearchStyle}
                 searchPlaceholderTextColor="black"
-                iconStyle={styles.iconStyle}
+                renderRightIcon={() => (
+                  <Image
+                    source={images.dropDownIcon}
+                    style={styles.iconStyle}
+                    resizeMode='contain'
+                  />
+                )}
                 data={data}
                 placeholder="NE"
                 value={value}
@@ -117,7 +123,6 @@ const CapturePhotos = () => {
                 iconSource={images.dateIcon}
                 showIcon={true}
                 iconStyle={{width: 25, height: 25}}
-               
               />
               <CustomInput
                 label={'Time'}
@@ -212,7 +217,7 @@ const styles = StyleSheet.create({
   top: {
     width: '100%',
     marginBottom: 10,
-    marginTop:15
+    marginTop: 15,
   },
   selectedTextStyle: {
     fontSize: 16,
@@ -226,9 +231,9 @@ const styles = StyleSheet.create({
     fontFamily: 'OpenSans-Regular',
   },
   iconStyle: {
-    width: 25,
-    height: 15,
-    color: '#292D32',
+    width: 28,
+    color: 'black',
+    marginRight:13
   },
   item: {
     padding: 10,

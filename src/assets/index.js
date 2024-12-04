@@ -22,4 +22,7 @@ export const images = {
     blackMoreIcon: require('./images/blackMore.png'),
     blackBackIcon: require('./images/blackreturn.png'),
     backGreenIcon: require('./images/backIcon.png'),
+    dropDownIcon : require('./images/dropDownArrow.png'),
+    searchIcon : require('./images/SearchIcon.png'),
+    miniIcon : require('./images/photoLogminiIcon.png'),
 }

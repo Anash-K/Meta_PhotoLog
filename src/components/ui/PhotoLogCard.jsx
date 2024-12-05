@@ -1,8 +1,35 @@
-import React, {memo} from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import React, {memo, useState} from 'react';
+import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import {images} from '../../assets';
+import ProjectActions from './ProjectActions';
+import {useNavigation} from '@react-navigation/native';
+import {Menu, MenuItem} from 'react-native-material-menu';
 
 const PhotoLogCard = memo(({item}) => {
+  const [moreAction, setMoreAction] = useState(false);
+  const navigation = useNavigation();
+
+  const handleToggle = () => {
+    setMoreAction(!moreAction);
+  };
+
+  const navToEditPhotoLog = () => {};
+
+  const [visible, setVisible] = useState(false);
+
+  const hideMenu = () => {
+    setVisible(false);
+  };
+
+  const handleEdit = () => {
+    hideMenu();
+    navigation.navigate('CreatePhotoLog',{
+      photoLogData:item
+    });
+  }
+
+  const showMenu = () => setVisible(true);
+
   return (
     <View style={styles.container}>
       <View
@@ -16,12 +43,19 @@ const PhotoLogCard = memo(({item}) => {
           <Text style={styles.title}>{item.title}</Text>
         </View>
 
-        <Image
-          style={{width: 4, margin: 3}}
-          source={images.blackMoreIcon}
-          tintColor={'#006D77'}
-          resizeMode="contain"
-        />
+        <View>
+          <Pressable style={{padding: 3}} onPress={showMenu}>
+            <Image
+              style={{width: 4, margin: 3}}
+              source={images.blackMoreIcon}
+              tintColor={'#006D77'}
+              resizeMode="contain"
+            />
+          </Pressable>
+          <Menu visible={visible} onRequestClose={hideMenu}>
+            <MenuItem onPress={handleEdit}>Edit PhotoLog</MenuItem>
+          </Menu>
+        </View>
       </View>
       <View style={{rowGap: 9, marginBottom: 25}}>
         <Text style={styles.projectName}>{item.ProjectName}</Text>
@@ -103,6 +137,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Urbanist-Medium',
     lineHeight: 16.8,
-    color:'rgba(75, 95, 95, 1)'
+    color: 'rgba(75, 95, 95, 1)',
   },
 });

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Image,
   ImageBackground,
@@ -17,14 +17,18 @@ import CustomInput from '../components/ui/CustomInput';
 import CustomButton from '../components/ui/CustomButton';
 import {GlobalColors} from '../constants/Colors';
 import {useNavigation} from '@react-navigation/native';
+import { AuthContext } from '../auth/AuthContext';
 
 const Login = ({navigation}) => {
+
+  const { setIsLogin } = useContext(AuthContext);
+
   const handleChange = text => {
     console.log(text);
   };
 
   const handleSubmit = () => {
-    navigation.navigate('createAccount');
+    setIsLogin(true);
   };
 
   const handleCreateAccount = () => {

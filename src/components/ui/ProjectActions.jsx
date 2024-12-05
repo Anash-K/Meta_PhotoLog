@@ -1,6 +1,6 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 
-const ProjectActions = ({handleClose, handleEdit}) => {
+const ProjectActions = ({handleClose, handleEdit,optionTitle}) => {
   return (
     <View style={styles.container}>
       <View style={styles.modalHead}>
@@ -10,7 +10,7 @@ const ProjectActions = ({handleClose, handleEdit}) => {
       </View>
       <View style={styles.content}>
         <Pressable style={styles.button} onPress={handleEdit}>
-          <Text style={styles.moreOptions}>Edit Project</Text>
+          <Text style={styles.moreOptions}>{optionTitle}</Text>
         </Pressable>
       </View>
     </View>
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 10,
     top: 5,
-    width: 100,
+    maxWidth: 100,
     borderRadius: 12,
     paddingTop: 6,
     borderWidth: 1,
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.2,
     shadowRadius: 4,
-    elevation: 3, // For Android shadow
+    elevation: 3,
   },
   closeButton: {
     backgroundColor: '#ff6b6b',

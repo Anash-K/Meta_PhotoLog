@@ -10,8 +10,9 @@ import {ScrollView} from 'react-native-gesture-handler';
 import CustomInput from '../components/ui/CustomInput';
 import CustomButton from '../components/ui/CustomButton';
 import {Dropdown} from 'react-native-element-dropdown';
-import {useEffect, useState} from 'react';
+import {useEffect, useLayoutEffect, useState} from 'react';
 import {images} from '../assets';
+import ImageComponent from '../components/ui/ImageCutomSelector';
 
 const data = [
   {label: 'Item 1', value: '1'},
@@ -19,22 +20,54 @@ const data = [
   {label: 'Item 3', value: '3'},
 ];
 
-const CreatePhotoLog = ({navigation}) => {
+const CustomImages = [
+  {source: images.demoImage1, selected: false},
+  {source: images.demoImage2, selected: false},
+  {source: images.demoImage3, selected: false},
+  {source: images.demoImage4, selected: false},
+  {source: images.demoImage5, selected: false},
+  {source: images.demoImage6, selected: false},
+];
+
+const CreatePhotoLog = ({navigation, route}) => {
   const [value, setValue] = useState('4 Photo - Red');
+  const [selectedImages, setSelectedImages] = useState(CustomImages);
+
+  const toggleImageSelection = index => {
+    const updatedImages = [...selectedImages];
+    updatedImages[index].selected = !updatedImages[index].selected;
+    setSelectedImages(updatedImages);
+  };
+
+  const {photoLogData} = route.params || {};
+
+  useLayoutEffect(() => {
+    if (photoLogData) {
+      navigation.setOptions({
+        headerTitle: 'Edit PhotoLog',
+      });
+    } else {
+      navigation.setOptions({
+        headerTitle: 'Create PhotoLog',
+      });
+    }
+  }, [photoLogData]);
 
   const handleChange = item => {
     setValue(item.label);
   };
 
-  useEffect(() =>{
-
-  },[value])
+  useEffect(() => {}, [value]);
 
   const renderItem = item => (
     <View style={styles.item}>
       <Text style={styles.textItem}>{item.label}</Text>
     </View>
   );
+
+  const handleEditPhoto = () => {
+    navigation.navigate('AddPhotos');
+  };
 
   return (
     <View style={styles.container}>
@@ -48,15 +81,30 @@ const CreatePhotoLog = ({navigation}) => {
             <CustomInput
               label={'PhotoLog Title'}
               placeholderText={'e.g. First bash'}
+              inputConfigurations={{
+                value: photoLogData ? photoLogData.title : '',
+              }}
             />
-            <CustomInput label={'Client'} placeholderText={'XYZ Inc.'} />
+            <CustomInput
+              label={'Client'}
+              placeholderText={'XYZ Inc.'}
+              inputConfigurations={{
+                value: photoLogData ? photoLogData.client : '',
+              }}
+            />
             <CustomInput
               label={'Project Name'}
               placeholderText={'e.g. Project Phoenix'}
+              inputConfigurations={{
+                value: photoLogData ? photoLogData.ProjectName : '',
+              }}
             />
             <CustomInput
               label={'Location'}
               placeholderText={'e.g. SW-01-001-01 W1M / 123 Main St.'}
+              inputConfigurations={{
+                value: photoLogData ? photoLogData.location : '',
+              }}
             />
             <View style={styles.top}>
               <View
@@ -71,6 +119,7 @@ const CreatePhotoLog = ({navigation}) => {
                   buttonTitle={'View Templates'}
                   pressableContainerStyle={styles.buttonStyle}
                   InnerTextStyle={styles.buttonText}
+                  OnPressAction={() => navigation.navigate('TemplatesNav')}
                 />
               </View>
 
@@ -107,7 +156,7 @@ const CreatePhotoLog = ({navigation}) => {
                   buttonTitle={'Edit Photos'}
                   pressableContainerStyle={styles.buttonStyle}
                   InnerTextStyle={styles.buttonText}
-                  OnPressAction={()=> navigation.navigate('')}
+                  OnPressAction={() => handleEditPhoto()}
                 />
               </View>
               <View
@@ -117,19 +166,22 @@ const CreatePhotoLog = ({navigation}) => {
                   gap: 4,
                   marginBottom: 30,
                 }}>
-                <Image source={images.demoImage1} style={styles.imageStyle} />
-                <Image source={images.demoImage2} style={styles.imageStyle} />
-                <Image source={images.demoImage3} style={styles.imageStyle} />
-                <Image source={images.demoImage4} style={styles.imageStyle} />
-                <Image source={images.demoImage5} style={styles.imageStyle} />
-                <Image source={images.demoImage6} style={styles.imageStyle} />
+                {selectedImages.map((image, idx) => (
+                  <ImageComponent
+                    key={idx}
+                    index={idx}
+                    imageSource={image}
+                    toggleImageSelection={toggleImageSelection}
+                    selectedImages={selectedImages}
+                  />
+                ))}
               </View>
             </View>
           </View>
         </KeyboardAvoidingView>
       </ScrollView>
       <CustomButton
-        buttonTitle={'Create PhotoLog'}
+        buttonTitle={photoLogData ? 'Save' : 'Create PhotoLog'}
         containerStyle={{paddingTop: 10}}
       />
     </View>
@@ -139,10 +191,6 @@ const CreatePhotoLog = ({navigation}) => {
 export default CreatePhotoLog;
 
 const styles = StyleSheet.create({
-  imageStyle: {
-    width: '32%',
-    height: 114,
-  },
   container: {
     flex: 1,
     paddingHorizontal: 14,

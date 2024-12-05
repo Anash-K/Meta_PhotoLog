@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   Image,
   ImageBackground,
@@ -17,17 +17,16 @@ import CustomInput from '../components/ui/CustomInput';
 import CustomButton from '../components/ui/CustomButton';
 import {useNavigation} from '@react-navigation/native';
 import {images} from '../assets';
+import {AuthContext} from '../auth/AuthContext';
 
 const ProjectSetup = () => {
   const navigator = useNavigation();
+  const {setIsLogin} = useContext(AuthContext);
 
   const handleChange = () => {};
 
   const handleForwardPush = () => {
-    console.log(navigator);
-    navigator.navigate('ProjectMap');
-
-    navigator.navigate('BottomNav');
+    setIsLogin(true);
   };
 
   const handleBackNav = () => {

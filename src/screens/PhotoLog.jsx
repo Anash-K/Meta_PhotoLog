@@ -4,21 +4,26 @@ import {images} from '../assets';
 import PhotoLogCard from '../components/ui/PhotoLogCard';
 
 const data = [
-    {
-      id: 1,
-      title: 'Oct 8, 2024 - Oct 15, 2024',
-      ProjectName: 'The Balance',
-      description: 'The Balance Spa Renovation Journey',
-      count: 10,
-    },
-    {
-      id: 2,
-      title: 'May 2, 2024 - May 12, 2024',
-      ProjectName: 'Skyline Development',
-      description: 'Urban Skyline Development Photolog',
-      count: 10,
-    },
-  ];
+  {
+    id: 1,
+    title: 'Oct 8, 2024 - Oct 15, 2024',
+    ProjectName: 'The Balance',
+    description: 'The Balance Spa Renovation Journey',
+    count: 10,
+    client: 'SpaCorp Inc.', 
+    location: 'Los Angeles, CA', 
+  },
+  {
+    id: 2,
+    title: 'May 2, 2024 - May 12, 2024',
+    ProjectName: 'Skyline Development',
+    description: 'Urban Skyline Development Photolog',
+    count: 10,
+    client: 'Urban Solutions', 
+    location: 'New York City, NY', 
+  },
+];
+
   
 
 const PhotoLog = () => {

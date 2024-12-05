@@ -25,4 +25,10 @@ export const images = {
     dropDownIcon : require('./images/dropDownArrow.png'),
     searchIcon : require('./images/SearchIcon.png'),
     miniIcon : require('./images/photoLogminiIcon.png'),
+    template1: require('./images/Template1.png'),
+    template2: require('./images/Template2.png'),
+    template3: require('./images/Template3.png'),
+    template4: require('./images/Template4.png'),
+    template5: require('./images/Template5.png'),
+    template6: require('./images/Template6.png'),
 }

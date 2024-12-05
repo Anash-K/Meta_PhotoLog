@@ -1,13 +1,12 @@
 import React from 'react';
-import {Text, View, StyleSheet, FlatList, Image} from 'react-native';
-import {useLayoutEffect, useState} from 'react';
+import {Text, View, StyleSheet, FlatList} from 'react-native';
+import { useState} from 'react';
 import {Dropdown} from 'react-native-element-dropdown';
-import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
+import {ScrollView} from 'react-native-gesture-handler';
 import CustomPhotosCard from '../components/ui/CustomPhotosCard';
 import {images} from '../assets';
 import CustomButton from '../components/ui/CustomButton';
-import {useFocusEffect, useNavigation, useRoute} from '@react-navigation/native';
-import {GlobalColors} from '../constants/Colors';
+import { useNavigation} from '@react-navigation/native';
 
 
 const data = [
@@ -42,12 +41,11 @@ const PhotosData = [
   },
 ];
 
-const Photos = () => {
+const AddPhotos = () => {
   const [value, setValue] = useState('Search Project');
   const [isFocus, setIsFocus] = useState(false);
   const [photosData, setPhotosData] = useState(PhotosData);
   const navigation = useNavigation();
-  const route = useRoute();
 
   const handleChange = item => {
     setValue(item.value);
@@ -133,23 +131,9 @@ const Photos = () => {
   );
 };
 
-export default Photos;
+export default AddPhotos;
 
 const styles = StyleSheet.create({
-  headerRightIcon: {
-    backgroundColor: '#fff',
-    paddingVertical: 10,
-    borderRadius: 5,
-    marginRight: 14,
-  },
-  headerRightIconText: {
-    color: GlobalColors.primaryBase,
-    fontSize: 14,
-    fontFamily: 'OpenSans-Semibold',
-  },
-  backIconStyle: {
-    width: 9,
-  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -201,15 +185,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'black',
     fontFamily: 'OpenSans-Regular',
-  },
-  backButton: {
-    paddingHorizontal: 8,
-    paddingVertical: 1,
-    borderRadius: 40,
-    width: 27,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItemsL: 'center',
-    marginLeft: 10,
   },
 });

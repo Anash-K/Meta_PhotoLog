@@ -7,11 +7,15 @@ import {useNavigation} from '@react-navigation/native';
 import ProjectMiddleCard from './ui/ProjectsMiddleCard';
 import {useState} from 'react';
 import ProjectActions from './ui/ProjectActions';
+import {Menu, MenuItem} from 'react-native-material-menu';
 
 const ProjectDetailsCard = ({data}) => {
   const navigator = useNavigation();
+  const [visible, setVisible] = useState(false);
 
-  const [moreAction, setMoreAction] = useState(false);
+  const hideMenu = () => setVisible(false);
+
+  const showMenu = () => setVisible(true);
 
   const handlePress = () => {};
 
@@ -24,7 +28,7 @@ const ProjectDetailsCard = ({data}) => {
   };
 
   const navToEditProject = () => {
-    setMoreAction(false);
+    hideMenu();
     navigator.navigate('CreateProject', {
       data: data,
     });
@@ -47,19 +51,18 @@ const ProjectDetailsCard = ({data}) => {
           <View style={styles.headRight}>
             <Pressable
               style={styles.moreOptionsButton}
-              onPress={toggleMoreActions}>
+              onPress={showMenu}>
               <Image
                 source={threeDotIcon}
                 style={styles.moreDetails}
                 resizeMode="contain"
               />
             </Pressable>
-            {moreAction && (
-              <ProjectActions
-                handleClose={toggleMoreActions}
-                handleEdit={navToEditProject}
-              />
-            )}
+            <Menu
+              visible={visible}
+              onRequestClose={hideMenu}>
+              <MenuItem onPress={navToEditProject}>Edit Project</MenuItem>
+            </Menu>
           </View>
         </View>
         <View style={styles.content}>

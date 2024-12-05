@@ -35,98 +35,102 @@ const tabBarIcon = (icon, {color, size, focused}) => {
 
 export const BottomNav = () => {
   return (
-    <View style={{flex: 1}}>
-      <BottomTab.Navigator
-        screenOptions={({navigation}) => ({
-          tabBarHideOnKeyboard: true,
+    <BottomTab.Navigator
+      screenOptions={({navigation}) => ({
+        tabBarHideOnKeyboard: true,
+        headerStyle: {
+          backgroundColor: GlobalColors.primaryBase,
+          height: Platform.select({ios: 120}),
+        },
+        headerTintColor: '#FFFFFF',
+        tabBarActiveTintColor: '#FFFFFF',
+        tabBarInactiveTintColor: ' rgba(255, 255, 255, 0.5)',
+        tabBarLabel: () => null,
+        tabBarIconStyle: {
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: 50,
+          marginTop: 5,
+        },
+        tabBarStyle: {
+          padding: 15,
+          backgroundColor: GlobalColors.primaryBase,
+        },
+        headerTitleAlign: 'left',
+        headerTitleStyle: styles.navHeaderTitle,
+      })}>
+      <BottomTab.Screen
+        component={Projects}
+        name="Projects"
+        options={({navigation}) => ({
+          title: 'Projects',
+          tabBarIcon: tabBarIcon.bind(this, images.ProjectTabIcon),
+          headerRight: () => (
+            <CustomButton
+              containerStyle={styles.headerRightContainer}
+              pressableContainerStyle={styles.headerRightIcon}
+              OnPressAction={() => {
+                navigation.navigate('CreateProject');
+              }}
+              buttonTitle={'+  New project'}
+              InnerTextStyle={styles.headerRightIconText}
+            />
+          ),
+        })}
+      />
+      <BottomTab.Screen
+        component={Photos}
+        name="Photos"
+        options={({navigation}) => ({
+          title: 'Photos',
+          tabBarIcon: tabBarIcon.bind(this, images.PhotosTabIcon),
+          headerRight: () => (
+            <CustomButton
+              containerStyle={styles.headerRightContainer}
+              pressableContainerStyle={styles.headerRightIcon}
+              OnPressAction={() => {
+                navigation.navigate('CapturePhotos');
+              }}
+              buttonTitle={'+ Add Photo'}
+              InnerTextStyle={styles.headerRightIconText}
+            />
+          ),
+        })}
+      />
+      <BottomTab.Screen
+        component={PhotoLog}
+        name="PhotoLog"
+        options={({navigation}) => ({
+          title: 'PhotoLogs',
+          tabBarIcon: tabBarIcon.bind(this, images.chatTabIcon),
+          headerRight: () => (
+            <CustomButton
+              containerStyle={styles.headerRightContainer}
+              pressableContainerStyle={styles.headerRightIcon}
+              OnPressAction={() => {
+                navigation.navigate('CreatePhotoLog');
+              }}
+              buttonTitle={'+ New'}
+              InnerTextStyle={styles.headerRightIconText}
+            />
+          ),
+        })}
+      />
+      <BottomTab.Screen
+        component={MainMenu}
+        name="MainMenu"
+        options={{
+          title: 'Main Menu',
+          tabBarIcon: tabBarIcon.bind(this, images.MainMenuTabIcon),
+          headerTitleAlign: 'center',
+          sceneStyle: {backgroundColor: '#fff'},
           headerStyle: {
-            backgroundColor: GlobalColors.primaryBase,
-            height: Platform.select({ios: 120}),
-          },
-          headerTintColor: '#FFFFFF',
-          tabBarActiveTintColor: '#FFFFFF',
-          tabBarInactiveTintColor: ' rgba(255, 255, 255, 0.5)',
-          tabBarLabel: () => null,
-          tabBarIconStyle: {
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: 50,
-            marginTop: 5,
-          },
-          tabBarStyle: {
-            padding: 15,
+            borderBottomWidth: 0,
             backgroundColor: GlobalColors.primaryBase,
           },
-          headerTitleAlign: 'left',
-          headerTitleStyle: styles.navHeaderTitle,
-        })}>
-        <BottomTab.Screen
-          component={Projects}
-          name="Projects"
-          options={({navigation}) => ({
-            title: 'Projects',
-            tabBarIcon: tabBarIcon.bind(this, images.ProjectTabIcon),
-            headerRight: () => (
-              <CustomButton
-                containerStyle={styles.headerRightContainer}
-                pressableContainerStyle={styles.headerRightIcon}
-                OnPressAction={() => {
-                  navigation.navigate('CreateProject');
-                }}
-                buttonTitle={'+  New project'}
-                InnerTextStyle={styles.headerRightIconText}
-              />
-            ),
-          })}
-        />
-        <BottomTab.Screen
-          component={Photos}
-          name="Photos"
-          options={({navigation}) => ({
-            title: 'Photos',
-            tabBarIcon: tabBarIcon.bind(this, images.PhotosTabIcon),
-            headerRight: () => (
-              <CustomButton
-                containerStyle={styles.headerRightContainer}
-                pressableContainerStyle={styles.headerRightIcon}
-                OnPressAction={() => {
-                  navigation.navigate('CapturePhotos');
-                }}
-                buttonTitle={'+ Add Photo'}
-                InnerTextStyle={styles.headerRightIconText}
-              />
-            ),
-          })}
-        />
-        <BottomTab.Screen
-          component={PhotoLog}
-          name="PhotoLog"
-          options={({navigation}) => ({
-            title: 'PhotoLogs',
-            tabBarIcon: tabBarIcon.bind(this, images.chatTabIcon),
-            headerRight: () => (
-              <CustomButton
-                containerStyle={styles.headerRightContainer}
-                pressableContainerStyle={styles.headerRightIcon}
-                OnPressAction={() => {
-                  navigation.navigate('CreatePhotoLog');
-                }}
-                buttonTitle={'+ New'}
-                InnerTextStyle={styles.headerRightIconText}
-              />
-            ),
-          })}
-        />
-        <BottomTab.Screen
-          component={MainMenu}
-          name="MainMenu"
-          options={{
-            title: 'Main Menu',
-            tabBarIcon: tabBarIcon.bind(this, images.MainMenuTabIcon),
-          }}
-        />
-      </BottomTab.Navigator>
-    </View>
+        }}
+      />
+    </BottomTab.Navigator>
   );
 };
 

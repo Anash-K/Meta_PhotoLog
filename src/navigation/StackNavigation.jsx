@@ -1,8 +1,5 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Image, StyleSheet, View} from 'react-native';
-import Login from '../screens/Login';
-import CreateAccount from '../screens/CreateAccount';
-import ProjectSetup from '../screens/ProfileSetup';
+import {Image, StyleSheet} from 'react-native';
 import {BottomNav} from './BottomNavigation';
 import ProjectDetails from '../screens/ProjectDetails';
 import {GlobalColors} from '../constants/Colors';
@@ -16,6 +13,8 @@ import {images} from '../assets';
 import {navigationRef} from '../../App';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import CreatePhotoLog from '../screens/CreatePhotoLog';
+import AddPhotos from '../screens/AddPhotos';
+import TemplatesNav from './TabNavigation';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +30,6 @@ export const Navigation = () => {
       screenOptions={({navigation}) => ({
         headerStyle: {
           backgroundColor: GlobalColors.primaryBase,
-          // height: 100,
         },
         headerTintColor: 'white',
         headerTitleAlign: 'center',
@@ -57,27 +55,6 @@ export const Navigation = () => {
           </TouchableOpacity>
         ),
       })}>
-      <Stack.Screen
-        component={Login}
-        name="login"
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        component={CreateAccount}
-        name="createAccount"
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        component={ProjectSetup}
-        name="projectSetup"
-        options={{
-          headerShown: false,
-        }}
-      />
       <Stack.Screen
         component={BottomNav}
         name="BottomNav"
@@ -138,7 +115,18 @@ export const Navigation = () => {
           },
         }}
       />
-       <Stack.Screen
+      <Stack.Screen
+        component={AddPhotos}
+        name="AddPhotos"
+        options={{
+          title: 'Add Photos',
+          headerStyle: {
+            backgroundColor: GlobalColors.primaryBase,
+          },
+          headerRight: () => null,
+        }}
+      />
+      <Stack.Screen
         component={CreatePhotoLog}
         name="CreatePhotoLog"
         options={{
@@ -146,6 +134,18 @@ export const Navigation = () => {
           headerStyle: {
             backgroundColor: GlobalColors.primaryBase,
           },
+        }}
+      />
+      <Stack.Screen
+        component={TemplatesNav}
+        name="TemplatesNav"
+        options={{
+          title: 'Templates',
+          headerStyle: {
+            backgroundColor: GlobalColors.primaryBase,
+          },
+          headerRight: () => null,
+          contentStyle:'#fff'
         }}
       />
     </Stack.Navigator>
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
   headerTitleLook: {
     fontSize: 24,
     fontFamily: 'OpenSans-Bold',
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
   },
   backButtonIcon: {
     width: 9,

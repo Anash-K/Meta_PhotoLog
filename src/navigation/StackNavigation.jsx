@@ -1,5 +1,5 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet, Text} from 'react-native';
 import {BottomNav} from './BottomNavigation';
 import ProjectDetails from '../screens/ProjectDetails';
 import {GlobalColors} from '../constants/Colors';
@@ -11,10 +11,11 @@ import CapturePhotos from '../screens/CapturePhotos';
 import EditPhoto from '../screens/EditPhoto';
 import {images} from '../assets';
 import {navigationRef} from '../../App';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {Pressable, TouchableOpacity} from 'react-native-gesture-handler';
 import CreatePhotoLog from '../screens/CreatePhotoLog';
 import AddPhotos from '../screens/AddPhotos';
 import TemplatesNav from './TabNavigation';
+import UnLockAllFeatures from '../screens/UnLockAllFeatures';
 
 const Stack = createNativeStackNavigator();
 
@@ -145,7 +146,32 @@ export const Navigation = () => {
             backgroundColor: GlobalColors.primaryBase,
           },
           headerRight: () => null,
-          contentStyle:'#fff'
+          contentStyle: '#fff',
+        }}
+      />
+      <Stack.Screen
+        component={UnLockAllFeatures}
+        name="UnlockAllFeatures"
+        options={{
+          title: 'Unlock All Features',
+          headerStyle: {
+            borderBottomWidth: 0,
+            backgroundColor: GlobalColors.primaryBase,
+            shadowOffset: {width: 0, height: 0},
+            shadowColor: 'transparent',
+            borderColor: GlobalColors.primaryBase,
+          },
+          headerRight: () => null,
+          contentStyle: GlobalColors.primaryBase,
+          headerLeft: () => (
+            <Pressable style={{padding: 3, marginBottom: 4}} onPress={goBack}>
+              <Image
+                source={images.xIcon}
+                resizeMode="contain"
+                style={styles.xIcon}
+              />
+            </Pressable>
+          ),
         }}
       />
     </Stack.Navigator>
@@ -153,6 +179,10 @@ export const Navigation = () => {
 };
 
 const styles = StyleSheet.create({
+  xIcon: {
+    width: 25,
+    height: 27,
+  },
   rightIconStyle: {
     width: 4,
     height: 14,

@@ -2,7 +2,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import {GlobalColors} from '../constants/Colors';
 import CustomButton from '../components/ui/CustomButton';
 import LinearGradient from 'react-native-linear-gradient';
-import {FlatList, ScrollView} from 'react-native-gesture-handler';
+import {FlatList, Pressable, ScrollView} from 'react-native-gesture-handler';
 import CustomMenuOptions from '../components/ui/CustomMenuOptions';
 import {images} from '../assets';
 
@@ -57,7 +57,10 @@ const demoData = [
   },
 ];
 
-const MainMenu = () => {
+const MainMenu = ({navigation}) => {
+  const navToUnlockFeature = () => {
+    navigation.navigate('UnlockAllFeatures');
+  };
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -77,15 +80,20 @@ const MainMenu = () => {
             start={{x: 0, y: 0}}
             end={{x: 0, y: 1}}
             style={styles.subscribeButton}>
-            <Text style={styles.subscribeText}>Subscribe</Text>
+            <Pressable
+              style={{paddingHorizontal: 20, paddingVertical: 10}}
+              onPress={navToUnlockFeature}>
+              <Text style={styles.subscribeText}>Subscribe</Text>
+            </Pressable>
           </LinearGradient>
         </View>
       </View>
       <ScrollView
-        contentContainerStyle={{paddingHorizontal: 20, paddingBottom: 20}}>
+        contentContainerStyle={{paddingHorizontal: 20, paddingBottom: 20}}
+        showsVerticalScrollIndicator={false}>
         <View style={{marginBottom: 30}}>
           {demoData.map((item, index) => (
-            <CustomMenuOptions data={item} />
+            <CustomMenuOptions key={item.id} data={item} />
           ))}
         </View>
         <Text style={styles.versionText}>V 1.2.0.1</Text>
@@ -107,6 +115,7 @@ const styles = StyleSheet.create({
     backgroundColor: GlobalColors.primaryBase,
     paddingHorizontal: 15,
     paddingVertical: 20,
+    paddingTop: 10,
   },
   title: {
     fontSize: 20,
@@ -136,8 +145,6 @@ const styles = StyleSheet.create({
   subscribeText: {
     color: '#fff',
     textAlign: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
   },
   versionText: {
     color: '#006D77',

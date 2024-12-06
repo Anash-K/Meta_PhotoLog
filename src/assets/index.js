@@ -38,4 +38,9 @@ export const images = {
   privacyIcon: require('./images/privacy.png'),
   lockIcon: require('./images/lock.png'),
   helpIcon: require('./images/help.png'),
+  xIcon: require('./images/X.png'),
+  tickIcon: require('./images/check1.png'),
+  greenUncheck: require('./images/GreenUncheck.png'),
+  checked: require('./images/checkedIcon.png'),
+  moreInfo: require('./images/Icon-Refresh.png'),
 };

@@ -1,6 +1,7 @@
 import {Image, Platform, StyleSheet, View} from 'react-native';
 import {images} from '../assets';
 import {ScrollView} from 'react-native-gesture-handler';
+import {memo} from 'react';
 
 const ImagePath = [
   {source: images.template1},
@@ -37,7 +38,7 @@ export default Templates;
 const styles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
-    backgroundColor: '#fff', 
+    backgroundColor: '#fff',
     paddingBottom: Platform.select({ios: 35, android: 26}),
     paddingHorizontal: 7,
     paddingTop: 16,

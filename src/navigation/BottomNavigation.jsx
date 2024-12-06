@@ -127,6 +127,8 @@ export const BottomNav = () => {
           headerStyle: {
             borderBottomWidth: 0,
             backgroundColor: GlobalColors.primaryBase,
+            shadowOffset: {width: 0, height: 0},
+            shadowColor: 'transparent',
           },
         }}
       />

@@ -15,6 +15,7 @@ const TemplatesNav = () => {
           height: 1,
         },
         tabBarLabelStyle: styles.titleLook,
+        sceneStyle: {backgroundColor: '#fff'},
       })}>
       <Tab.Screen name="All" component={Templates} options={() => ({})} />
       <Tab.Screen

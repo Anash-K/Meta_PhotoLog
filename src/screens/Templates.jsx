@@ -1,4 +1,4 @@
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, Platform, StyleSheet, View} from 'react-native';
 import {images} from '../assets';
 import {ScrollView} from 'react-native-gesture-handler';
 
@@ -15,7 +15,8 @@ const Templates = () => {
   return (
     <ScrollView
       contentContainerStyle={styles.scrollContainer}
-      style={{flex: 1}} overScrollMode='auto' >
+      style={{flex: 1}}
+      overScrollMode="auto">
       <View style={styles.innerContainer}>
         {ImagePath.map((item, index) => (
           <View key={index} style={styles.imageWrapper}>
@@ -35,19 +36,21 @@ export default Templates;
 
 const styles = StyleSheet.create({
   scrollContainer: {
-    paddingHorizontal: 7,
-    paddingVertical: 16,
     flexGrow: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff', 
+    paddingBottom: Platform.select({ios: 35, android: 26}),
+    paddingHorizontal: 7,
+    paddingTop: 16,
   },
   innerContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    rowGap: 15,
+    rowGap: Platform.select({android: 15, ios: 20}),
     backgroundColor: '#fff',
+    columnGap: Platform.select({android: 10}),
   },
   imageWrapper: {
-    width: '50%',
+    width: Platform.select({ios: '50%', android: '48%'}),
     flexGrow: 1,
   },
   imageStyle: {

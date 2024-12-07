@@ -129,10 +129,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   detailsIcon: {
-    backgroundColor: 'rgba(0, 0, 0, 0.25)',
-    padding: Platform.select({ios: 3.5}),
-    borderRadius: 10,
+    width:3
   },deleteIconContainer:{
-
+    paddingHorizontal:10,
+    paddingVertical:1,
+    backgroundColor: 'rgba(0, 0, 0, 0.25)',
+    borderRadius: 14,
   }
 });

@@ -151,7 +151,9 @@ const CreatePhotoLog = ({navigation, route}) => {
                   alignItems: 'center',
                   marginBottom: 10,
                 }}>
-                <Text style={styles.label}>Photos (2)</Text>
+                <Text style={styles.label}>{`Photos (${
+                  selectedImages.filter(item => item.selected === true).length
+                })`}</Text>
                 <CustomButton
                   buttonTitle={'Edit Photos'}
                   pressableContainerStyle={styles.buttonStyle}
@@ -207,6 +209,7 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
     fontSize: 14,
     fontFamily: 'OpenSans-Semibold',
+    color: '#5C546A',
   },
   selectedTextStyle: {
     fontSize: 16,

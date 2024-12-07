@@ -1,9 +1,12 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {GlobalColors} from '../../constants/Colors';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const CustomMenuOptions = ({data}) => {
+const CustomMenuOptions = ({data, OnPressHandle}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={OnPressHandle.bind(this,data.goToPage)}>
       <Image
         source={data.icon1}
         tintColor={GlobalColors.primaryBase}
@@ -17,7 +20,7 @@ const CustomMenuOptions = ({data}) => {
         tintColor={'rgba(67, 67, 67, 1)'}
         resizeMode="contain"
       />
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -31,7 +34,7 @@ const styles = StyleSheet.create({
     columnGap: 10,
     borderBottomWidth: 1,
     borderColor: 'rgba(241, 242, 245, 1)',
-    paddingVertical:6,
+    paddingVertical: 6,
   },
   text: {
     flexGrow: 1,

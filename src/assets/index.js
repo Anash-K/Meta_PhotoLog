@@ -43,4 +43,5 @@ export const images = {
   greenUncheck: require('./images/GreenUncheck.png'),
   checked: require('./images/checkedIcon.png'),
   moreInfo: require('./images/Icon-Refresh.png'),
+  dotIcon: require('./images/dot.png'),
 };

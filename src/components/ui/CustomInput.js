@@ -25,7 +25,7 @@ const CustomInput = ({
   showIcon,
   iconSource,
   iconStyle,
-  customPressableStyle
+  customPressableStyle,
 }) => {
   const [isSecure, setIsSecure] = useState(true);
 
@@ -59,6 +59,7 @@ const CustomInput = ({
             autoComplete="off"
             secureTextEntry={isPassword && isSecure}
             placeholder={placeholderText}
+            placeholderTextColor={'rgba(92, 84, 106, 0.5)'}
           />
         )}
 
@@ -81,12 +82,13 @@ const CustomInput = ({
           <Pressable
             onPress={handleIconAction}
             style={({pressed}) => [
-              styles.pressableButton,customPressableStyle,
+              styles.pressableButton,
+              customPressableStyle,
               pressed && styles.pressed,
             ]}>
             <Image
               source={iconSource}
-              style={[styles.iconEye,iconStyle]}
+              style={[styles.iconEye, iconStyle]}
               resizeMode="contain"
             />
           </Pressable>
@@ -110,15 +112,17 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     fontSize: 16,
     flex: 1,
-    lineHeight:21,
+    lineHeight: 21,
     fontFamily: 'OpenSans-Regular',
+    color: '#292D32',
   },
   label: {
     textTransform: 'capitalize',
     fontSize: 14,
-    fontFamily:'Urbanist-SemiBold',
+    fontFamily: 'Urbanist-SemiBold',
     marginBottom: 10,
-    lineHeight:21
+    lineHeight: 21,
+    color: '#5C546A',
   },
   iconEye: {
     width: 20,

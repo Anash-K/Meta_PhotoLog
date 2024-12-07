@@ -1,13 +1,12 @@
 import React from 'react';
-import {Text, View, StyleSheet, FlatList} from 'react-native';
-import { useState} from 'react';
+import {Text, View, StyleSheet, FlatList, Platform} from 'react-native';
+import {useState} from 'react';
 import {Dropdown} from 'react-native-element-dropdown';
 import {ScrollView} from 'react-native-gesture-handler';
 import CustomPhotosCard from '../components/ui/CustomPhotosCard';
 import {images} from '../assets';
 import CustomButton from '../components/ui/CustomButton';
-import { useNavigation} from '@react-navigation/native';
-
+import {useNavigation} from '@react-navigation/native';
 
 const data = [
   {label: 'Item 1', value: '1'},
@@ -100,30 +99,29 @@ const AddPhotos = () => {
           renderItem={renderItem}
         />
       </View>
-      <ScrollView
-        contentContainerStyle={{flexGrow: 1, width: '100%'}}
-        style={{width: '100%'}}
-        showsVerticalScrollIndicator={false}>
-        <View style={{flex: 1, width: '100%'}}>
-          <FlatList
-            data={photosData}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({item, index}) => (
-              <CustomPhotosCard
-                title={item.title}
-                images={item.images}
-                isAllSelected={item.images.every(image => image.selected)}
-                toggleImageSelection={toggleImageSelection}
-                toggleAllImagesSelection={toggleAllImagesSelection}
-                itemIndex={index}
-              />
-            )}
+      <FlatList
+        data={photosData}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({item, index}) => (
+          <CustomPhotosCard
+            title={item.title}
+            images={item.images}
+            isAllSelected={item.images.every(image => image.selected)}
+            toggleImageSelection={toggleImageSelection}
+            toggleAllImagesSelection={toggleAllImagesSelection}
+            itemIndex={index}
           />
-        </View>
-      </ScrollView>
-      <View style={{width: '100%', paddingHorizontal: 14, paddingVertical: 15}}>
+        )}
+      />
+      <View
+        style={{
+          width: '100%',
+          paddingHorizontal: 14,
+          paddingVertical: 15,
+          paddingBottom: Platform.select({ios: 30}),
+        }}>
         <CustomButton
-          buttonTitle={`Create PhotoLog (${photosData.length})`}
+          buttonTitle={`Add To PhotoLog`}
           OnPressAction={handlePress}
         />
       </View>
@@ -168,7 +166,7 @@ const styles = StyleSheet.create({
     height: 40,
     fontSize: 16,
     backgroundColor: '#f0f0f0',
-    color: '#292D32',
+    color: '#5C546A',
     fontFamily: 'OpenSans-Regular',
   },
   iconStyle: {

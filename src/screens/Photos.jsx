@@ -6,9 +6,12 @@ import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import CustomPhotosCard from '../components/ui/CustomPhotosCard';
 import {images} from '../assets';
 import CustomButton from '../components/ui/CustomButton';
-import {useFocusEffect, useNavigation, useRoute} from '@react-navigation/native';
+import {
+  useFocusEffect,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import {GlobalColors} from '../constants/Colors';
-
 
 const data = [
   {label: 'Item 1', value: '1'},
@@ -47,7 +50,6 @@ const Photos = () => {
   const [isFocus, setIsFocus] = useState(false);
   const [photosData, setPhotosData] = useState(PhotosData);
   const navigation = useNavigation();
-  const route = useRoute();
 
   const handleChange = item => {
     setValue(item.value);
@@ -93,7 +95,13 @@ const Photos = () => {
           selectedTextStyle={styles.selectedTextStyle}
           inputSearchStyle={styles.inputSearchStyle}
           searchPlaceholderTextColor="black"
-          iconStyle={styles.iconStyle}
+          renderRightIcon={() => (
+            <Image
+              source={images.dropDownIcon}
+              style={styles.iconStyle}
+              resizeMode="contain"
+            />
+          )}
           data={data}
           value={value}
           placeholder="Select Project"
@@ -102,27 +110,21 @@ const Photos = () => {
           renderItem={renderItem}
         />
       </View>
-      <ScrollView
-        contentContainerStyle={{flexGrow: 1, width: '100%'}}
-        style={{width: '100%'}}
-        showsVerticalScrollIndicator={false}>
-        <View style={{flex: 1, width: '100%'}}>
-          <FlatList
-            data={photosData}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({item, index}) => (
-              <CustomPhotosCard
-                title={item.title}
-                images={item.images}
-                isAllSelected={item.images.every(image => image.selected)}
-                toggleImageSelection={toggleImageSelection}
-                toggleAllImagesSelection={toggleAllImagesSelection}
-                itemIndex={index}
-              />
-            )}
+      <FlatList
+        data={photosData}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({item, index}) => (
+          <CustomPhotosCard
+            title={item.title}
+            images={item.images}
+            isAllSelected={item.images.every(image => image.selected)}
+            toggleImageSelection={toggleImageSelection}
+            toggleAllImagesSelection={toggleAllImagesSelection}
+            itemIndex={index}
           />
-        </View>
-      </ScrollView>
+        )}
+        showsVerticalScrollIndicator={false}
+      />
       <View style={{width: '100%', paddingHorizontal: 14, paddingVertical: 15}}>
         <CustomButton
           buttonTitle={`Create PhotoLog (${photosData.length})`}
@@ -188,9 +190,8 @@ const styles = StyleSheet.create({
     fontFamily: 'OpenSans-Regular',
   },
   iconStyle: {
-    width: 25,
-    height: 15,
-    color: '#292D32',
+    width: 28,
+    color: 'black',
   },
   item: {
     padding: 10,

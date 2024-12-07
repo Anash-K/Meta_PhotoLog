@@ -40,8 +40,9 @@ const EditPhoto = () => {
   return (
     <View style={styles.container}>
       <KeyboardAvoidingView
-        style={{flex: 1}}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+        style={{flexGrow: 1}}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'padding'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}>
         <ScrollView
           contentContainerStyle={{flexGrow: 1}}
           style={{flex: 1}}
@@ -63,7 +64,7 @@ const EditPhoto = () => {
               <View style={styles.left}>
                 <View style={styles.iconBox}>
                   <Image
-                    style={{padding: 3}}
+                    style={{width: 10}}
                     source={images.location}
                     tintColor={'white'}
                     resizeMode="contain"
@@ -83,7 +84,8 @@ const EditPhoto = () => {
               </View>
             </View>
           </View>
-          <View style={{paddingBottom: 10, paddingHorizontal: 14}}>
+          <View
+            style={{paddingBottom: 10, paddingHorizontal: 14, marginTop: 10}}>
             <CustomInput
               label={'Description'}
               inputConfigurations={{
@@ -102,7 +104,13 @@ const EditPhoto = () => {
                 selectedTextStyle={styles.selectedTextStyle}
                 inputSearchStyle={styles.inputSearchStyle}
                 searchPlaceholderTextColor="black"
-                iconStyle={styles.iconStyle}
+                renderRightIcon={() => (
+                  <Image
+                    source={images.dropDownIcon}
+                    style={styles.iconStyle}
+                    resizeMode="contain"
+                  />
+                )}
                 data={data}
                 placeholder="NE"
                 value={value}
@@ -161,7 +169,13 @@ const EditPhoto = () => {
                   selectedTextStyle={styles.selectedTextStyle}
                   inputSearchStyle={styles.inputSearchStyle}
                   searchPlaceholderTextColor="black"
-                  iconStyle={styles.iconStyle}
+                  renderRightIcon={() => (
+                    <Image
+                      source={images.dropDownIcon}
+                      style={styles.iconStyle}
+                      resizeMode="contain"
+                    />
+                  )}
                   data={data}
                   placeholder="Skyline Development"
                   value={value}
@@ -172,9 +186,11 @@ const EditPhoto = () => {
               <View
                 style={{
                   borderColor: 'rgba(215, 216, 220, 1)',
-                  padding: 10,
+                  paddingHorizontal: 14,
+                  paddingVertical: 12,
                   borderWidth: 1,
                   borderRadius: 12,
+                  marginTop: 5,
                 }}>
                 <View style={styles.card}>
                   <Text style={styles.cardTitle}>
@@ -192,14 +208,17 @@ const EditPhoto = () => {
                     flexDirection: 'row',
                     alignItems: 'center',
                     columnGap: 10,
+                    marginBottom: 13,
                   }}>
                   <View
                     style={[
                       styles.iconBox,
-                      {borderColor: '#5C546A', marginBottom: 10},
+                      {
+                        borderColor: '#5C546A',
+                      },
                     ]}>
                     <Image
-                      style={{padding: 3}}
+                      style={{width: 10}}
                       source={images.location}
                       tintColor={'#5C546A'}
                       resizeMode="contain"
@@ -209,9 +228,14 @@ const EditPhoto = () => {
                     SE-36-20-4-W2
                   </Text>
                 </View>
-                <Text style={{fontFamily: 'Urbanist-Regular'}}>
+                <Text
+                  style={{
+                    fontFamily: 'Urbanist-Regular',
+                    lineHeight: 19.2,
+                    fontSize: 16,
+                  }}>
                   Steel framework installation completed in the northeast
-                  section of the 5th floor.{' '}
+                  section of the 5th floor.
                 </Text>
                 <View
                   style={{
@@ -223,29 +247,45 @@ const EditPhoto = () => {
                     paddingTop: 15,
                   }}>
                   <View>
-                    <Text style={{}}>Project Code</Text>
+                    <Text
+                      style={{
+                        color: '#292D32',
+                        fontFamily: 'Urbanist-SemiBold',
+                      }}>
+                      Project Code
+                    </Text>
                     <Text
                       style={{
                         backgroundColor: 'rgba(248, 248, 248, 1)',
                         padding: 10,
+                        paddingVertical: 5,
                         borderRadius: 5,
                         borderColor: 'rgba(215, 216, 220, 1)',
                         borderWidth: 1,
                         marginTop: 10,
+                        color: '#292D32',
                       }}>
                       GP7-DVLP-2024
                     </Text>
                   </View>
                   <View>
-                    <Text style={{}}>Budget Code</Text>
+                    <Text
+                      style={{
+                        color: '#292D32',
+                        fontFamily: 'Urbanist-SemiBold',
+                      }}>
+                      Budget Code
+                    </Text>
                     <Text
                       style={{
                         backgroundColor: 'rgba(248, 248, 248, 1)',
                         padding: 10,
+                        paddingVertical: 5,
                         borderRadius: 5,
                         borderColor: 'rgba(215, 216, 220, 1)',
                         borderWidth: 1,
                         marginTop: 10,
+                        color: '#292D32',
                       }}>
                       BUD-PIX7-2024
                     </Text>
@@ -256,7 +296,7 @@ const EditPhoto = () => {
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
-      <View style={{paddingHorizontal: 14, paddingBottom: 10,paddingTop:10}}>
+      <View style={{paddingHorizontal: 14, paddingBottom: 10, paddingTop: 10}}>
         <CustomButton buttonTitle={'Save'} />
       </View>
     </View>
@@ -287,12 +327,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'white',
     paddingVertical: 6,
-    paddingHorizontal: 6,
+    paddingHorizontal: 7,
     maxWidth: 25,
     maxHeight: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    
   },
   imageText: {color: 'white', fontSize: 14, fontFamily: 'OpenSans-Semibold'},
   right: {
@@ -348,11 +387,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
     color: '#292D32',
     fontFamily: 'OpenSans-Regular',
+    paddingHorizontal: 10,
   },
   iconStyle: {
-    width: 25,
-    height: 15,
-    color: '#292D32',
+    width: 26,
+    color: 'black',
+    marginRight: 10,
   },
   item: {
     padding: 10,
@@ -371,12 +411,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     width: '100%',
+    paddingHorizontal: 5,
   },
   label: {
     textTransform: 'capitalize',
     fontSize: 14,
     fontFamily: 'OpenSans-Semibold',
     marginBottom: 10,
+    color: '#5C546A',
   },
   subHeading: {
     alignItems: 'center',

@@ -40,8 +40,9 @@ const CapturePhotos = () => {
   return (
     <View style={styles.container}>
       <KeyboardAvoidingView
-        style={{flex: 1}}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+        style={{flexGrow: 1}}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}>
         <ScrollView
           contentContainerStyle={{flexGrow: 1}}
           style={{flex: 1}}
@@ -85,7 +86,11 @@ const CapturePhotos = () => {
           <View style={{paddingBottom: 10}}>
             <CustomInput
               label={'Description'}
-              inputConfigurations={{multiline: true, height: 90}}
+              inputConfigurations={{
+                multiline: true,
+                height: 90,
+                textAlignVertical: 'top',
+              }}
               placeholderText={'Photo details...'}
             />
             <View style={styles.top}>
@@ -100,7 +105,7 @@ const CapturePhotos = () => {
                   <Image
                     source={images.dropDownIcon}
                     style={styles.iconStyle}
-                    resizeMode='contain'
+                    resizeMode="contain"
                   />
                 )}
                 data={data}
@@ -233,7 +238,7 @@ const styles = StyleSheet.create({
   iconStyle: {
     width: 28,
     color: 'black',
-    marginRight:13
+    marginRight: 13,
   },
   item: {
     padding: 10,

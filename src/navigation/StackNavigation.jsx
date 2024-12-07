@@ -16,6 +16,7 @@ import CreatePhotoLog from '../screens/CreatePhotoLog';
 import AddPhotos from '../screens/AddPhotos';
 import TemplatesNav from './TabNavigation';
 import UnLockAllFeatures from '../screens/UnLockAllFeatures';
+import EditProfile from '../screens/EditProfile';
 
 const Stack = createNativeStackNavigator();
 
@@ -161,6 +162,7 @@ export const Navigation = () => {
             shadowColor: 'transparent',
             borderColor: GlobalColors.primaryBase,
           },
+          headerShadowVisible:false,
           headerRight: () => null,
           contentStyle: GlobalColors.primaryBase,
           headerLeft: () => (
@@ -172,6 +174,18 @@ export const Navigation = () => {
               />
             </Pressable>
           ),
+        }}
+      />
+       <Stack.Screen
+        component={EditProfile}
+        name="EditProfile"
+        options={{
+          title: 'Edit Profile',
+          headerStyle: {
+            backgroundColor: GlobalColors.primaryBase,
+          },
+          headerRight: () => null,
+          contentStyle: '#fff',
         }}
       />
     </Stack.Navigator>

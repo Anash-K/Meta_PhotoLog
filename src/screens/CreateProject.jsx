@@ -1,4 +1,10 @@
-import {KeyboardAvoidingView, StyleSheet, Text, View} from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import {Pressable, ScrollView} from 'react-native-gesture-handler';
 import CustomButton from '../components/ui/CustomButton';
 import {useNavigation} from '@react-navigation/native';
@@ -48,12 +54,13 @@ const CreateProject = ({route}) => {
     <View style={styles.container}>
       <KeyboardAvoidingView
         style={{flex: 1}}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 40}>
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}>
         <ScrollView
           style={{flex: 1}}
           contentContainerStyle={{flexGrow: 1}}
-          showsVerticalScrollIndicator={false}>
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled">
           <View style={styles.content}>
             <View style={styles.buttonContainer}>
               <Pressable style={styles.addButton} onPress={handleSelect}>
@@ -124,6 +131,10 @@ const CreateProject = ({route}) => {
         <CustomButton
           buttonTitle={'Create Project'}
           OnPressAction={handleCreateProject}
+          pressableContainerStyle={{
+            marginTop: 10,
+            marginBottom: Platform.select({ios: 20}),
+          }}
         />
       </View>
     </View>
@@ -140,6 +151,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingBottom: 20,
     paddingHorizontal: 14,
+    backgroundColor: '#fff',
   },
   addLogo: {
     fontSize: 50,

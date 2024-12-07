@@ -5,6 +5,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import {FlatList, Pressable, ScrollView} from 'react-native-gesture-handler';
 import CustomMenuOptions from '../components/ui/CustomMenuOptions';
 import {images} from '../assets';
+import {useContext} from 'react';
+import {AuthContext} from '../auth/AuthContext';
 
 const demoData = [
   {
@@ -12,12 +14,14 @@ const demoData = [
     icon1: images.chatTabIcon,
     icon2: images.backGreenIcon,
     title: 'PhotoLog Templates',
+    goToPage: 'TemplatesNav',
   },
   {
     id: 2,
     icon1: images.editIcon,
     icon2: images.backGreenIcon,
     title: 'Edit Profile',
+    goToPage: 'EditProfile',
   },
   {
     id: 3,
@@ -42,6 +46,7 @@ const demoData = [
     icon1: images.termsIcon,
     icon2: images.backGreenIcon,
     title: 'Terms & Conditions',
+    goToPage: 'UnlockAllFeatures',
   },
   {
     id: 7,
@@ -54,13 +59,29 @@ const demoData = [
     icon1: images.logoutIcon,
     icon2: images.backGreenIcon,
     title: 'Logout',
+    goToPage: 'login',
   },
 ];
 
 const MainMenu = ({navigation}) => {
+  const {setIsLogin} = useContext(AuthContext);
+
   const navToUnlockFeature = () => {
     navigation.navigate('UnlockAllFeatures');
   };
+
+  const handlePress = PageName => {
+    if (PageName != 'login' && PageName) {
+      navigation.navigate(PageName);
+    }
+
+    if (PageName == 'login') {
+      setIsLogin(false);
+    }else{
+      console.log("test")
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -93,7 +114,11 @@ const MainMenu = ({navigation}) => {
         showsVerticalScrollIndicator={false}>
         <View style={{marginBottom: 30}}>
           {demoData.map((item, index) => (
-            <CustomMenuOptions key={item.id} data={item} />
+            <CustomMenuOptions
+              key={item.id}
+              data={item}
+              OnPressHandle={handlePress}
+            />
           ))}
         </View>
         <Text style={styles.versionText}>V 1.2.0.1</Text>
@@ -126,7 +151,7 @@ const styles = StyleSheet.create({
   headerCard: {
     backgroundColor: 'rgba(241, 244, 254, 1)',
     flexDirection: 'row',
-    paddingHorizontal: 10,
+    paddingHorizontal: 14,
     paddingVertical: 15,
     borderRadius: 12,
     justifyContent: 'space-between',

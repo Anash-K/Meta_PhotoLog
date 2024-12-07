@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import {
   Image,
   ImageBackground,
@@ -42,7 +42,8 @@ const CreateAccount = () => {
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView
           contentContainerStyle={{flexGrow: 1}}
-          keyboardShouldPersistTaps="handled">
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}>
           <View style={styles.container}>
             <View style={{flex: 1}}>
               <View style={styles.imageContainer}>
@@ -52,11 +53,16 @@ const CreateAccount = () => {
                 <Text style={styles.text}>Join Us Today!</Text>
               </View>
               <View>
-                <CustomInput label={'Email'} onChange={handleChange} />
+                <CustomInput
+                  label={'Email'}
+                  onChange={handleChange}
+                  placeholderText={'e.g. ronalddahl@gmail.com'}
+                />
                 <CustomInput
                   label={'Password'}
                   isPassword={true}
                   onChange={handleChange}
+                  placeholderText={'e.g. password'}
                 />
               </View>
               <CustomButton
@@ -115,12 +121,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   bottomTextBox: {
-    marginTop:10,
+    marginTop: 10,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
     gap: 4,
-    marginBottom:20
+    marginBottom: 20,
   },
   bottomText: {
     fontFamily: 'OpenSans-Regular',

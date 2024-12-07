@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
     borderTopStartRadius: 10,
     borderTopRightRadius: 10,
     paddingBottom: 12,
+    paddingTop: 6,
   },
   content: {
     paddingHorizontal: 10,
@@ -134,6 +135,7 @@ const styles = StyleSheet.create({
   },
   headLeft: {
     rowGap: 4,
+    paddingTop:5
   },
   headRight: {},
   text: {
@@ -148,6 +150,6 @@ const styles = StyleSheet.create({
     width: 3.5,
   },
   moreOptionsButton: {
-    padding: 3,
+    padding: 5,
   },
 });

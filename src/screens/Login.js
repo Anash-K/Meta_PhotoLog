@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import {
   Image,
   ImageBackground,
@@ -17,18 +17,17 @@ import CustomInput from '../components/ui/CustomInput';
 import CustomButton from '../components/ui/CustomButton';
 import {GlobalColors} from '../constants/Colors';
 import {useNavigation} from '@react-navigation/native';
-import { AuthContext } from '../auth/AuthContext';
+import {AuthContext} from '../auth/AuthContext';
 
 const Login = ({navigation}) => {
-
-  const { setIsLogin } = useContext(AuthContext);
+  const {setIsLogin} = useContext(AuthContext);
 
   const handleChange = text => {
     console.log(text);
   };
 
   const handleSubmit = () => {
-    setIsLogin(true);
+    navigation.navigate('projectSetup');
   };
 
   const handleCreateAccount = () => {
@@ -41,11 +40,13 @@ const Login = ({navigation}) => {
       style={styles.container}
       resizeMode="cover">
       <KeyboardAvoidingView
-        style={{flex: 1}}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+        style={{flexGrow: 1}}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        >
         <ScrollView
           contentContainerStyle={{flexGrow: 1}}
-          keyboardShouldPersistTaps="handled">
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}>
           <View style={styles.container}>
             <StatusBar
               translucent
@@ -60,11 +61,16 @@ const Login = ({navigation}) => {
                 <Text style={styles.text}>Welcome Back!</Text>
               </View>
               <View>
-                <CustomInput label={'Email'} onChange={handleChange} />
+                <CustomInput
+                  label={'Email'}
+                  onChange={handleChange}
+                  placeholderText={'e.g. ronalddahl@gmail.com'}
+                />
                 <CustomInput
                   label={'Password'}
                   isPassword={true}
                   onChange={handleChange}
+                  placeholderText={'e.g.password'}
                 />
               </View>
               <CustomButton

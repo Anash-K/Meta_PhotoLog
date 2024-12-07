@@ -1,7 +1,16 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {GlobalColors} from '../constants/Colors';
 import {images} from '../assets';
 import {useState} from 'react';
+import CustomButton from '../components/ui/CustomButton';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const UnLockAllFeatures = () => {
   const [isSelected, setIsSelected] = useState({
@@ -31,148 +40,193 @@ const UnLockAllFeatures = () => {
 
   return (
     <View style={styles.container}>
-      {/* Free Plan Card */}
-      <View style={styles.card}>
-        <View style={styles.cardHeader}>
-          <Text style={styles.cardTitle}>Free Plan</Text>
+      <ScrollView
+        contentContainerStyle={{flexGrow: 1}}
+        showsVerticalScrollIndicator={false}>
+        {/* Free Plan Card */}
+        <View style={styles.card}>
+          <View style={styles.cardHeader}>
+            <Text style={styles.cardTitle}>Free Plan</Text>
+          </View>
+          <View style={styles.row}>
+            <Image
+              source={images.tickIcon}
+              style={styles.tickIcon}
+              resizeMode="contain"
+            />
+            <Text style={styles.contentText}>1 project & 10 images</Text>
+          </View>
+          <View style={styles.row}>
+            <Image
+              source={images.tickIcon}
+              style={styles.tickIcon}
+              resizeMode="contain"
+            />
+            <Text style={styles.contentText}>Basic PhotoLog Templates</Text>
+          </View>
         </View>
-        <View style={styles.row}>
-          <Image
-            source={images.tickIcon}
-            style={styles.tickIcon}
-            resizeMode="contain"
-          />
-          <Text style={styles.contentText}>1 project & 10 images</Text>
-        </View>
-        <View style={styles.row}>
-          <Image
-            source={images.tickIcon}
-            style={styles.tickIcon}
-            resizeMode="contain"
-          />
-          <Text style={styles.contentText}>Basic PhotoLog Templates</Text>
-        </View>
-      </View>
 
-      {/* Standard Plan Card */}
-      <View style={styles.card}>
-        <View style={styles.cardHeader}>
-          <Text style={styles.cardTitle}>Standard Plan</Text>
+        {/* Standard Plan Card */}
+        <View style={styles.card}>
+          <View style={styles.cardHeader}>
+            <Text style={styles.cardTitle}>Standard Plan</Text>
+          </View>
+          <View style={styles.row}>
+            <Image
+              source={images.tickIcon}
+              style={styles.tickIcon}
+              resizeMode="contain"
+            />
+            <Text style={styles.contentText}>5 projects & 50 images</Text>
+          </View>
+          <View style={styles.row}>
+            <Image
+              source={images.tickIcon}
+              style={styles.tickIcon}
+              resizeMode="contain"
+            />
+            <Text style={styles.contentText}>6 PhotoLog Templates</Text>
+          </View>
+          <TouchableOpacity style={styles.row} onPress={toggleStandardPlan}>
+            <Image
+              source={
+                isSelected.standardPlan ? images.checked : images.greenUncheck
+              }
+              resizeMode="contain"
+              style={styles.uncheck}
+            />
+            <Text style={[styles.text, {flexGrow: 1}]}>One-time purchase</Text>
+            <Text style={[styles.text, {fontFamily: 'OpenSans-Semibold'}]}>
+              $4.99
+            </Text>
+          </TouchableOpacity>
         </View>
-        <View style={styles.row}>
-          <Image
-            source={images.tickIcon}
-            style={styles.tickIcon}
-            resizeMode="contain"
-          />
-          <Text style={styles.contentText}>5 projects & 50 images</Text>
-        </View>
-        <View style={styles.row}>
-          <Image
-            source={images.tickIcon}
-            style={styles.tickIcon}
-            resizeMode="contain"
-          />
-          <Text style={styles.contentText}>6 PhotoLog Templates</Text>
-        </View>
-        <TouchableOpacity style={styles.row} onPress={toggleStandardPlan}>
-          <Image
-            source={
-              isSelected.standardPlan ? images.checked : images.greenUncheck
-            }
-            resizeMode="contain"
-            style={styles.uncheck}
-          />
-          <Text style={[styles.text, {flexGrow: 1}]}>One-time purchase</Text>
-          <Text style={[styles.text, {fontFamily: 'OpenSans-Semibold'}]}>
-            $4.99
-          </Text>
-        </TouchableOpacity>
-      </View>
 
-      {/* Professional Plan Card */}
-      <View style={styles.card}>
-        <View style={styles.cardHeader}>
-          <Text style={styles.cardTitle}>Professional Plan</Text>
+        {/* Professional Plan Card */}
+        <View style={styles.card}>
+          <View style={styles.cardHeader}>
+            <Text style={styles.cardTitle}>Professional Plan</Text>
+          </View>
+          <View style={styles.row}>
+            <Image
+              source={images.tickIcon}
+              style={styles.tickIcon}
+              resizeMode="contain"
+            />
+            <Text style={styles.contentText}>
+              Unlimited projects and images
+            </Text>
+          </View>
+          <View style={styles.row}>
+            <Image
+              source={images.tickIcon}
+              style={styles.tickIcon}
+              resizeMode="contain"
+            />
+            <Text style={styles.contentText}>
+              Customizable PhotoLog Templates
+            </Text>
+          </View>
+          <TouchableOpacity
+            style={styles.row}
+            onPress={() => toggleProfessionalPlan('monthly')}>
+            <Image
+              source={
+                isSelected.professionalPlan.monthly
+                  ? images.checked
+                  : images.greenUncheck
+              }
+              resizeMode="contain"
+              style={styles.uncheck}
+            />
+            <Text style={[styles.text, {flexGrow: 1}]}>Monthly</Text>
+            <Text style={[styles.text, {fontFamily: 'OpenSans-Semibold'}]}>
+              $2.99<Text style={{fontFamily: 'OpenSans-Regular'}}>/month</Text>
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.row}
+            onPress={() => toggleProfessionalPlan('yearly')}>
+            <Image
+              source={
+                isSelected.professionalPlan.yearly
+                  ? images.checked
+                  : images.greenUncheck
+              }
+              resizeMode="contain"
+              style={styles.uncheck}
+            />
+            <Text style={[styles.text, {flexGrow: 1}]}>Yearly</Text>
+            <Text style={[styles.text, {fontFamily: 'OpenSans-Semibold'}]}>
+              $23.88<Text style={{fontFamily: 'OpenSans-Regular'}}>/year</Text>
+            </Text>
+          </TouchableOpacity>
         </View>
-        <View style={styles.row}>
-          <Image
-            source={images.tickIcon}
-            style={styles.tickIcon}
-            resizeMode="contain"
-          />
-          <Text style={styles.contentText}>Unlimited projects and images</Text>
+        {/* Enterprise Plan Card */}
+        <View style={styles.card}>
+          <View style={styles.cardHeader}>
+            <Text style={styles.cardTitle}>Enterprise Plan</Text>
+          </View>
+          <View style={styles.row}>
+            <Image
+              source={images.tickIcon}
+              style={styles.tickIcon}
+              resizeMode="contain"
+            />
+            <Text style={styles.contentText}>
+              Company-wide access for teams.
+            </Text>
+          </View>
+          <View style={styles.row}>
+            <Image
+              source={images.tickIcon}
+              style={styles.tickIcon}
+              resizeMode="contain"
+            />
+            <Text style={styles.contentText}>
+              Volume pricing for 10+ users.
+            </Text>
+          </View>
+          <TouchableOpacity style={styles.moreInfo}>
+            <Image
+              source={images.moreInfo}
+              style={styles.moreInfoIcon}
+              resizeMode="contain"
+            />
+            <Text style={styles.moreInfoText}>More info</Text>
+          </TouchableOpacity>
         </View>
-        <View style={styles.row}>
-          <Image
-            source={images.tickIcon}
-            style={styles.tickIcon}
-            resizeMode="contain"
-          />
-          <Text style={styles.contentText}>
-            Customizable PhotoLog Templates
-          </Text>
-        </View>
-        <TouchableOpacity
-          style={styles.row}
-          onPress={() => toggleProfessionalPlan('monthly')}>
-          <Image
-            source={
-              isSelected.professionalPlan.monthly
-                ? images.checked
-                : images.greenUncheck
-            }
-            resizeMode="contain"
-            style={styles.uncheck}
-          />
-          <Text style={[styles.text, {flexGrow: 1}]}>Monthly</Text>
-          <Text style={[styles.text, {fontFamily: 'OpenSans-Semibold'}]}>
-            $4.99<Text style={{fontFamily: 'OpenSans-Regular'}}>/month</Text>
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.row}
-          onPress={() => toggleProfessionalPlan('yearly')}>
-          <Image
-            source={
-              isSelected.professionalPlan.yearly
-                ? images.checked
-                : images.greenUncheck
-            }
-            resizeMode="contain"
-            style={styles.uncheck}
-          />
-          <Text style={[styles.text, {flexGrow: 1}]}>Yearly</Text>
-          <Text style={[styles.text, {fontFamily: 'OpenSans-Semibold'}]}>
-            $49.99<Text style={{fontFamily: 'OpenSans-Regular'}}>/year</Text>
-          </Text>
-        </TouchableOpacity>
-      </View>
-      {/* Enterprise Plan Card */}
-      <View style={styles.card}>
-        <View style={styles.cardHeader}>
-          <Text style={styles.cardTitle}>Enterprise Plan</Text>
-        </View>
-        <View style={styles.row}>
-          <Image
-            source={images.tickIcon}
-            style={styles.tickIcon}
-            resizeMode="contain"
-          />
-          <Text style={styles.contentText}>Company-wide access for teams.</Text>
-        </View>
-        <View style={styles.row}>
-          <Image
-            source={images.tickIcon}
-            style={styles.tickIcon}
-            resizeMode="contain"
-          />
-          <Text style={styles.contentText}>Volume pricing for 10+ users.</Text>
-        </View>
-        <TouchableOpacity>
-          <Image source={images.moreInfo} />
-          <Text>More info</Text>
-        </TouchableOpacity>
+      </ScrollView>
+      <CustomButton
+        buttonTitle={'Upgrade to Pro'}
+        pressableContainerStyle={styles.button}
+        InnerTextStyle={{
+          color: 'rgba(0, 109, 119, 1)',
+          flexGrow: 1,
+          textAlign: 'center',
+          marginLeft: 10,
+        }}
+        Icon={images.backGreenIcon}
+        IconStyle={styles.buttonIcon}
+      />
+      <Text
+        style={{
+          fontFamily: 'OpenSans-Semibold',
+          fontSize: 16,
+          lineHeight: 21.79,
+          color: 'rgba(255, 255, 255, 1)',
+          textAlign: 'center',
+        }}>
+        Restore
+      </Text>
+      <View style={styles.termsBox}>
+        <Text style={styles.terms}>Terms & Conditions</Text>
+        <Image
+          source={images.dotIcon}
+          resizeMode="contain"
+          style={{width: 5}}
+        />
+        <Text style={styles.terms}>Privacy Policy</Text>
       </View>
     </View>
   );
@@ -181,11 +235,45 @@ const UnLockAllFeatures = () => {
 export default UnLockAllFeatures;
 
 const styles = StyleSheet.create({
+  termsBox: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    columnGap: 13,
+    marginTop: 15,
+  },
+  terms: {
+    fontSize: 12,
+    lineHeight: 16.34,
+    fontFamily: 'OpenSans-Regular',
+    color: 'white',
+  },
+  buttonIcon: {
+    marginRight: 10,
+    transform: [{rotate: '180deg'}],
+  },
+  button: {
+    backgroundColor: '#fff',
+    flexDirection: 'row-reverse',
+    paddingVertical: 18,
+    marginHorizontal: 5,
+    marginTop: 14,
+    marginBottom: 18,
+  },
+  moreInfoIcon: {
+    width: 14,
+  },
+  moreInfoText: {
+    fontFamily: 'OpenSans-Regular',
+    fontSize: 14,
+    lineHeight: 19.07,
+  },
   container: {
     flex: 1,
     backgroundColor: GlobalColors.primaryBase,
     paddingHorizontal: 12,
     paddingVertical: 16,
+    paddingBottom: Platform.select({ios: 40, android: 30}),
   },
   card: {
     backgroundColor: 'rgba(241, 244, 254, 0.9)',
@@ -225,5 +313,18 @@ const styles = StyleSheet.create({
   },
   text: {
     color: GlobalColors.primaryBase,
+    fontSize:16
+  },
+  moreInfo: {
+    flexDirection: 'row',
+    backgroundColor: 'rgba(1, 109, 119, 0.12)',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    borderRadius: 25,
+    columnGap: 10,
+    paddingHorizontal: 10,
+    alignSelf: 'flex-start',
+    marginTop: 10,
+    marginBottom: 5,
   },
 });

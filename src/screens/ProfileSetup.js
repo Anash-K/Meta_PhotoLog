@@ -60,9 +60,21 @@ const ProjectSetup = () => {
           showsVerticalScrollIndicator={false}>
           <View style={styles.content}>
             <View style={styles.form}>
-              <CustomInput label={'First Name'} onChange={handleChange} />
-              <CustomInput label={'Last Name'} onChange={handleChange} />
-              <CustomInput label={'Organization'} onChange={handleChange} />
+              <CustomInput
+                label={'First Name'}
+                onChange={handleChange}
+                placeholderText={'e.g.Ronald'}
+              />
+              <CustomInput
+                label={'Last Name'}
+                onChange={handleChange}
+                placeholderText={'e.g.Dahl'}
+              />
+              <CustomInput
+                label={'Organization'}
+                onChange={handleChange}
+                placeholderText={'e.g.Metta'}
+              />
               <CustomInput
                 label={'Phone Number'}
                 isPhoneInput={true}
@@ -72,7 +84,7 @@ const ProjectSetup = () => {
                   maxLength: 12,
                 }}
               />
-              <CustomInput label={'Email'} onChange={handleChange} />
+              <CustomInput label={'Email'} onChange={handleChange} placeholderText={'e.g.ronalddahl@gmail.com'} />
             </View>
           </View>
         </ScrollView>

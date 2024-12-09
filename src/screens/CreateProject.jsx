@@ -171,7 +171,10 @@ const styles = StyleSheet.create({
   },
   iconText: {
     fontSize: 14,
-    fontFamily: 'OpenSans-Semibold',
+    fontFamily: 'Urbanist-SemiBold',
+    color:'#5C546A',
+    lineHeight:16.8,
+    marginTop:6
   },
   content: {
     flex: 1,

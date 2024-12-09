@@ -157,6 +157,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%',
     marginTop: 20,
+    paddingBottom:11,
+    alignItems:'center'
   },
   premiumText: {
     flexGrow: 1,

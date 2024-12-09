@@ -95,6 +95,7 @@ export const Navigation = () => {
         options={{
           headerTitle: 'Create Project',
           contentStyle: {backgroundColor: '#fff'},
+          headerRight:() => null
         }}
       />
       <Stack.Screen
@@ -105,6 +106,7 @@ export const Navigation = () => {
           headerStyle: {
             backgroundColor: GlobalColors.primaryBase,
           },
+          headerRight:() => null
         }}
       />
       <Stack.Screen
@@ -115,6 +117,7 @@ export const Navigation = () => {
           headerStyle: {
             backgroundColor: GlobalColors.primaryBase,
           },
+          headerRight:() => null
         }}
       />
       <Stack.Screen
@@ -136,6 +139,7 @@ export const Navigation = () => {
           headerStyle: {
             backgroundColor: GlobalColors.primaryBase,
           },
+          headerRight:() => null
         }}
       />
       <Stack.Screen

@@ -62,15 +62,15 @@ const EditPhoto = () => {
             />
             <View style={styles.imageContent}>
               <View style={styles.left}>
-                <View style={styles.iconBox}>
+                {/* <View style={styles.iconBox}>
                   <Image
                     style={{width: 10}}
                     source={images.location}
                     tintColor={'white'}
                     resizeMode="contain"
                   />
-                </View>
-                <Text style={styles.imageText}>SE-36-20-4-W2</Text>
+                </View> */}
+                {/* <Text style={styles.imageText}>SE-36-20-4-W2</Text> */}
               </View>
               <View style={styles.right}>
                 <View style={styles.rightIconBox}>
@@ -264,6 +264,7 @@ const EditPhoto = () => {
                         borderWidth: 1,
                         marginTop: 10,
                         color: '#292D32',
+                        fontFamily: 'Urbanist-SemiBold',
                       }}>
                       GP7-DVLP-2024
                     </Text>
@@ -286,6 +287,7 @@ const EditPhoto = () => {
                         borderWidth: 1,
                         marginTop: 10,
                         color: '#292D32',
+                        fontFamily: 'Urbanist-SemiBold',
                       }}>
                       BUD-PIX7-2024
                     </Text>
@@ -368,7 +370,7 @@ const styles = StyleSheet.create({
   },
   placeholderStyle: {
     fontSize: 16,
-    color: 'rgba(92, 84, 106, 0.5)',
+    color: '#292D32',
     fontFamily: 'OpenSans-Regular',
     paddingHorizontal: 10,
   },

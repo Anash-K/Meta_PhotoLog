@@ -93,10 +93,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontFamily: 'OpenSans-Bold',
+    color: '#292D32',
   },
   selectedIconOnTitle: {
-    width: 22,
-    height: 22,
+    width: 23,
+    height: 23,
   },
   imagesContainer: {
     flexDirection: 'row',
@@ -111,29 +112,31 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 123,
+    height: 124,
   },
   selectedIcon: {
-    width: 20,
-    height: 20,
+    width: 22,
+    height: 22,
   },
   imageButton: {
     width: '32.3%',
   },
   ActionsContainer: {
     position: 'absolute',
-    top: 5,
+    top: 7,
     justifyContent: 'space-between',
+    alignItems:'center',
     flexDirection: 'row',
     width: '100%',
-    paddingHorizontal: 10,
+    paddingHorizontal: 8,
   },
   detailsIcon: {
-    width:3
-  },deleteIconContainer:{
-    paddingHorizontal:10,
-    paddingVertical:1,
+    width: 3,
+  },
+  deleteIconContainer: {
+    paddingHorizontal: 11,
+    paddingVertical: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.25)',
     borderRadius: 14,
-  }
+  },
 });

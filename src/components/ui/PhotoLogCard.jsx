@@ -37,7 +37,7 @@ const PhotoLogCard = memo(({item}) => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: 12,
+          marginBottom: 9,
         }}>
         <View style={styles.titleBox}>
           <Text style={styles.title}>{item.title}</Text>
@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Urbanist-Medium',
     lineHeight: 16.8,
     color: 'rgba(75, 95, 95, 1)',
+    marginTop:2
   },
   innerText: {
     fontSize: 14,

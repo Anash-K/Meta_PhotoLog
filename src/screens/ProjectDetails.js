@@ -25,57 +25,67 @@ const ProjectDetails = ({route}) => {
   };
 
   return (
-    <ScrollView
-      style={{flex: 1}}
-      contentContainerStyle={{flexGrow: 1}}
-      overScrollMode="auto"
-      showsVerticalScrollIndicator={false}>
-      <View style={styles.container}>
-        <View style={styles.frame}>
-          <Image source={mapFrame} resizeMode="cover" style={styles.mapFrame} />
-          <Pressable style={styles.ImagePressable} onPress={handleMapNav}>
-            <Text style={styles.rightIconText}>Expand Map</Text>
+    <View style={{flex: 1}}>
+      <ScrollView
+        style={{flex: 1}}
+        contentContainerStyle={{flexGrow: 1}}
+        overScrollMode="auto"
+        showsVerticalScrollIndicator={false}>
+        <View style={styles.container}>
+          <View style={styles.frame}>
             <Image
-              source={RightArrowIcon}
-              style={styles.rightArrowIcon}
-              resizeMode="contain"
+              source={mapFrame}
+              resizeMode="cover"
+              style={styles.mapFrame}
             />
-          </Pressable>
-        </View>
-        <View style={styles.content}>
-          <View style={styles.TitleBox}>
-            <View>
-              <Text style={styles.titleLabel}>Google Inc.</Text>
+            <Pressable style={styles.ImagePressable} onPress={handleMapNav}>
+              <Text style={styles.rightIconText}>Expand Map</Text>
+              <Image
+                source={RightArrowIcon}
+                style={styles.rightArrowIcon}
+                resizeMode="contain"
+              />
+            </Pressable>
+          </View>
+          <View style={styles.content}>
+            <View style={styles.TitleBox}>
+              <View>
+                <Text style={styles.titleLabel}>{data.subTitle}</Text>
+              </View>
+              <View>
+                <Text style={styles.title}>{data.title}</Text>
+              </View>
             </View>
-            <View>
-              <Text style={styles.title}>{data.title}</Text>
+            <View style={styles.descriptionBox}>
+              <ProjectMiddleCard
+                data={data}
+                customIconStyle={styles.descriptionIcon}
+                customImageBox={styles.ImageBox}
+              />
+            </View>
+            <View style={styles.infoBox}>
+              <Text
+                style={[
+                  styles.text,
+                  {fontFamily: 'OpenSans-Semibold', marginBottom: 10},
+                ]}>
+                Project Info.
+              </Text>
+              <Text
+                style={[
+                  styles.text,
+                  {
+                    fontFamily: 'OpenSans-Regular',
+                    fontSize: 14,
+                    lineHeight: 19.07,
+                  },
+                ]}>
+                {data.projectInfo}
+              </Text>
             </View>
           </View>
-          <View style={styles.descriptionBox}>
-            <ProjectMiddleCard
-              data={data}
-              customIconStyle={styles.descriptionIcon}
-              customImageBox={styles.ImageBox}
-            />
-          </View>
-          <View style={styles.infoBox}>
-            <Text
-              style={[
-                styles.text,
-                {fontFamily: 'OpenSans-Semibold', marginBottom: 10},
-              ]}>
-              Project Info.
-            </Text>
-            <Text
-              style={[
-                styles.text,
-                {fontFamily: 'OpenSans-Regular', fontSize: 14},
-              ]}>
-              {data.projectInfo}
-            </Text>
-          </View>
         </View>
-      </View>
+      </ScrollView>
       <View style={styles.buttonBox}>
         <CustomButton
           buttonTitle={'Add Photo'}
@@ -91,7 +101,7 @@ const ProjectDetails = ({route}) => {
           containerStyle={{flex: 1}}
         />
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -100,15 +110,16 @@ export default ProjectDetails;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 14,
+    paddingTop: 18,
   },
   title: {
     fontSize: 18,
     fontWeight: 'OpenSans-Bold',
+    color: '#292D32',
   },
   titleLabel: {
     fontSize: 14,
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: 'OpenSans-Semibold',
     color: GlobalColors.primaryBase,
     marginBottom: 10,
   },
@@ -151,6 +162,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 14,
+    color: '#5C546A',
   },
   TitleBox: {
     paddingHorizontal: 14,
@@ -182,7 +194,7 @@ const styles = StyleSheet.create({
   },
   rightIconText: {
     color: 'white',
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: 'OpenSans-Semibold',
     fontSize: 12,
   },
 });

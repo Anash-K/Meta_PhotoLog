@@ -29,14 +29,14 @@ const TemplatesNav = () => {
         name="4Photo"
         component={Templates}
         options={() => ({
-          title: '1 Photo',
+          title: '4 Photos',
         })}
       />
       <Tab.Screen
         name="6Photo"
         component={Templates}
         options={() => ({
-          title: '6 Photo',
+          title: '6 Photos',
         })}
       />
     </Tab.Navigator>
@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
   titleLook: {
     fontSize: 14,
     lineHeight: 19.07,
-    fontFamily: 'OpenSans-Semibold',
+    fontFamily: 'OpenSans-Regular',
   },
 });

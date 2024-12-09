@@ -49,19 +49,17 @@ const ProjectDetailsCard = ({data}) => {
             <Text style={[styles.text, styles.headTitle]}>{data.subTitle}</Text>
           </View>
           <View style={styles.headRight}>
-            <Pressable
-              style={styles.moreOptionsButton}
-              onPress={showMenu}>
+            <Pressable style={styles.moreOptionsButton} onPress={showMenu}>
               <Image
                 source={threeDotIcon}
                 style={styles.moreDetails}
                 resizeMode="contain"
               />
             </Pressable>
-            <Menu
-              visible={visible}
-              onRequestClose={hideMenu}>
-              <MenuItem onPress={navToEditProject}>Edit Project</MenuItem>
+            <Menu visible={visible} onRequestClose={hideMenu}>
+              <MenuItem onPress={navToEditProject} style={styles.text}>
+                Edit Project
+              </MenuItem>
             </Menu>
           </View>
         </View>
@@ -134,13 +132,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headLeft: {
-    rowGap: 4,
-    paddingTop:5
+    rowGap: 6,
+    paddingTop: 5,
   },
   headRight: {},
   text: {
     fontSize: 14,
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: 'OpenSans-Semibold',
+    color: '#5C546A',
   },
   headTitle: {
     color: 'white',

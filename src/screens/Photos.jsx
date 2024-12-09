@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     borderColor: '#D7D8DC',
     borderWidth: 1,
     borderRadius: 10,
-    paddingHorizontal: 8,
+    paddingHorizontal: 16,
     width: '100%',
   },
   placeholderStyle: {
@@ -192,6 +192,7 @@ const styles = StyleSheet.create({
   iconStyle: {
     width: 28,
     color: 'black',
+  
   },
   item: {
     padding: 10,

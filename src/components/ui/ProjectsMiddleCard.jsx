@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 14,
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: 'OpenSans-Semibold',
+    color:'#5C546A'
   },
   ImageBox: {
     borderRadius: 50,

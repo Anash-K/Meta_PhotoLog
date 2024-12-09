@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
   headerRightContainer: {},
   headerRightIcon: {
     backgroundColor: '#fff',
-    paddingVertical: 10,
+    paddingVertical: 9,
     borderRadius: 5,
     marginRight: 14,
   },

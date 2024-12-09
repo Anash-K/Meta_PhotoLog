@@ -153,7 +153,13 @@ const CapturePhotos = () => {
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
-      <CustomButton buttonTitle={'Save'} />
+      <CustomButton
+        buttonTitle={'Save'}
+        pressableContainerStyle={{
+          marginBottom: Platform.select({ios: 20, android: 15}),
+          marginTop: 15,
+        }}
+      />
     </View>
   );
 };

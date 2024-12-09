@@ -62,7 +62,7 @@ const UnLockAllFeatures = () => {
               style={styles.tickIcon}
               resizeMode="contain"
             />
-            <Text style={styles.contentText}>Basic PhotoLog Templates</Text>
+            <Text style={styles.contentText}>1 PhotoLog Template</Text>
           </View>
         </View>
 

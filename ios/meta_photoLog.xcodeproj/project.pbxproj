@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* meta_photoLogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* meta_photoLogTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-meta_photoLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-meta_photoLog.a */; };
+		10EAFF90483E45CE92A1FC87 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBEEE5740CD54851B149295A /* BootSplash.storyboard */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -16,6 +17,7 @@
 		7699B88040F8A987B510C191 /* libPods-meta_photoLog-meta_photoLogTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-meta_photoLog-meta_photoLogTests.a */; };
 		801AC1E42FA448DEB88DD11E /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32A7FF40D7054FE18C2E34AA /* OpenSans-Semibold.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8881FF62AE1246F1BA6A8462 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3641B9E65BD47F0B00A1681 /* Colors.xcassets */; };
 		888E6A3CE7444C88A30FA238 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F76AFC747BAC44F99E4EAA98 /* OpenSans-Regular.ttf */; };
 		8D7089458EF34DA9A6511AEF /* Urbanist-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E25ECE31F6804D6BA0491D94 /* Urbanist-Regular.ttf */; };
 		A05FAD2AFD4244DE94F3290A /* Urbanist-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B1EF521F4BC493E8E4FC268 /* Urbanist-Medium.ttf */; };
@@ -57,10 +59,12 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-meta_photoLog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-meta_photoLog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = meta_photoLog/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-meta_photoLog-meta_photoLogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meta_photoLog-meta_photoLogTests.release.xcconfig"; path = "Target Support Files/Pods-meta_photoLog-meta_photoLogTests/Pods-meta_photoLog-meta_photoLogTests.release.xcconfig"; sourceTree = "<group>"; };
+		CBEEE5740CD54851B149295A /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = meta_photoLog/BootSplash.storyboard; sourceTree = "<group>"; };
 		D15BB0696CB440DEB79D7EC2 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../src/assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		E25ECE31F6804D6BA0491D94 /* Urbanist-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-Regular.ttf"; path = "../src/assets/fonts/Urbanist-Regular.ttf"; sourceTree = "<group>"; };
 		EAD83605FAB140F597CC0AEF /* Urbanist-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-Bold.ttf"; path = "../src/assets/fonts/Urbanist-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F3641B9E65BD47F0B00A1681 /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = meta_photoLog/Colors.xcassets; sourceTree = "<group>"; };
 		F76AFC747BAC44F99E4EAA98 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../src/assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +115,8 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				CBEEE5740CD54851B149295A /* BootSplash.storyboard */,
+				F3641B9E65BD47F0B00A1681 /* Colors.xcassets */,
 			);
 			name = meta_photoLog;
 			sourceTree = "<group>";
@@ -288,6 +294,8 @@
 				A05FAD2AFD4244DE94F3290A /* Urbanist-Medium.ttf in Resources */,
 				8D7089458EF34DA9A6511AEF /* Urbanist-Regular.ttf in Resources */,
 				B6E584E140044D1B980982F2 /* Urbanist-SemiBold.ttf in Resources */,
+				10EAFF90483E45CE92A1FC87 /* BootSplash.storyboard in Resources */,
+				8881FF62AE1246F1BA6A8462 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

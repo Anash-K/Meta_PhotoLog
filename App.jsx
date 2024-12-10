@@ -35,7 +35,8 @@ function App() {
   );
 }
 
-function AuthState() {
+function AuthState() { 
+  
   const {isLogin} = useContext(AuthContext);
 
   return isLogin ? <Navigation /> : <AuthStack />;

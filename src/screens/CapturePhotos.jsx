@@ -269,6 +269,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'OpenSans-Semibold',
     marginBottom: 10,
+    color: '#5C546A',
   },
   subHeading: {
     alignItems: 'center',

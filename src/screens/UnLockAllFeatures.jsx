@@ -282,10 +282,10 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 15,
     borderWidth: 3,
-    borderColor: GlobalColors.primaryBase,
+    borderColor: 'rgba(241, 244, 254, 0.25)',
   },
   cardHeader: {
-    borderColor: 'rgba(0, 109, 119, 0.1)',
+    borderColor: 'rgba(206, 228, 228, 1)',
     borderBottomWidth: 4,
     alignSelf: 'flex-start',
     marginBottom: 10,
@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: GlobalColors.primaryBase,
-    fontSize:16
+    fontSize: 16,
   },
   moreInfo: {
     flexDirection: 'row',

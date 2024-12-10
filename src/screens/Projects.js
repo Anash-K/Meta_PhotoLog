@@ -5,6 +5,7 @@ import {
   TextInput,
   Image,
   StatusBar,
+  Platform,
 } from 'react-native';
 import SearchIcon from '../assets/images/SearchIcon.png';
 import {FlatList} from 'react-native-gesture-handler';
@@ -22,7 +23,7 @@ const ProjectsData = [
       {id: 1, name: 'Add Photo'},
       {id: 2, name: 'View Project Details'},
       {id: 3, name: 'View Photos (5)'},
-      {id: 4, name: 'Create Photos'},
+      {id: 4, name: 'Create PhotoLog'},
     ],
   },
   {
@@ -37,7 +38,7 @@ const ProjectsData = [
       {id: 1, name: 'Add Photo'},
       {id: 2, name: 'View Project Details'},
       {id: 3, name: 'View Photos (3)'},
-      {id: 4, name: 'Create Photos'},
+      {id: 4, name: 'Create PhotoLog'},
     ],
   },
   {
@@ -52,7 +53,7 @@ const ProjectsData = [
       {id: 1, name: 'Add Photo'},
       {id: 2, name: 'View Project Details'},
       {id: 3, name: 'View Photos (2)'},
-      {id: 4, name: 'Create Photos'},
+      {id: 4, name: 'Create PhotoLog'},
     ],
   },
   {
@@ -67,7 +68,7 @@ const ProjectsData = [
       {id: 1, name: 'Add Photo'},
       {id: 2, name: 'View Project Details'},
       {id: 3, name: 'View Photos (8)'},
-      {id: 4, name: 'Create Photos'},
+      {id: 4, name: 'Create PhotoLog'},
     ],
   },
   {
@@ -82,7 +83,7 @@ const ProjectsData = [
       {id: 1, name: 'Add Photo'},
       {id: 2, name: 'View Project Details'},
       {id: 3, name: 'View Photos (10)'},
-      {id: 4, name: 'Create Photos'},
+      {id: 4, name: 'Create PhotoLog'},
     ],
   },
   {
@@ -97,11 +98,10 @@ const ProjectsData = [
       {id: 1, name: 'Add Photo'},
       {id: 2, name: 'View Project Details'},
       {id: 3, name: 'View Photos (4)'},
-      {id: 4, name: 'Create Photos'},
+      {id: 4, name: 'Create PhotoLog'},
     ],
   },
 ];
-
 
 const Projects = () => {
   return (
@@ -151,12 +151,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     marginHorizontal: 14,
     marginBottom: 18,
+    paddingVertical: Platform.select({ios: 10, android: 6}),
   },
   input: {
     color: '#A0A5AD',
     fontSize: 16,
     fontFamily: 'OpenSans-Regular',
-    flex:1,
+    flex: 1,
   },
   searchIcon: {
     width: 18,

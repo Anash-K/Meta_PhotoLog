@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   label: {
     textTransform: 'capitalize',
     fontSize: 14,
-    fontFamily: 'Urbanist-SemiBold',
+    fontFamily: 'OpenSans-Semibold',
     marginBottom: 10,
     lineHeight: 21,
     color: '#5C546A',

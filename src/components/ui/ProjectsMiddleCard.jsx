@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   sideIcon: {
     flexDirection: 'row',
     columnGap: 10,
-    marginBottom: 12,
+    marginBottom: 12.5,
     alignItems:'center'
   },
   text: {

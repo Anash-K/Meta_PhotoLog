@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   titleBox: {
-    borderBottomColor: 'rgba(188, 218, 218, 1)',
+    borderBottomColor: 'rgba(206, 228, 228, 1)',
     borderBottomWidth: 8,
   },
   title: {
@@ -136,8 +136,8 @@ const styles = StyleSheet.create({
   },
   innerText: {
     fontSize: 14,
-    fontFamily: 'Urbanist-Medium',
+    fontFamily: 'Urbanist-SemiBold',
     lineHeight: 16.8,
-    color: 'rgba(75, 95, 95, 1)',
+    color: '#4B5F5F',
   },
 });

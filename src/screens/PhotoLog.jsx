@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     columnGap: 15,
     paddingHorizontal: 15,
     marginBottom: 18,
+    paddingVertical: Platform.select({ios: 10, android: 7}),
   },
   input: {
     color: '#A0A5AD',

@@ -100,13 +100,13 @@ const styles = StyleSheet.create({
   },
   head: {
     backgroundColor: GlobalColors.primaryBase,
-    padding: 10,
+    padding: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderTopStartRadius: 10,
     borderTopRightRadius: 10,
     paddingBottom: 12,
-    paddingTop: 6,
+    paddingTop: 12,
   },
   content: {
     paddingHorizontal: 10,
@@ -132,10 +132,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headLeft: {
-    rowGap: 6,
-    paddingTop: 5,
+    rowGap: 8,
   },
-  headRight: {},
+  headRight: {
+    marginRight:10
+  },
   text: {
     fontSize: 14,
     fontFamily: 'OpenSans-Semibold',
@@ -149,6 +150,6 @@ const styles = StyleSheet.create({
     width: 3.5,
   },
   moreOptionsButton: {
-    padding: 5,
+    // padding: 5,
   },
 });

@@ -1,6 +1,6 @@
 import {Image, Platform, StyleSheet, View} from 'react-native';
 import {images} from '../assets';
-import {ScrollView} from 'react-native-gesture-handler';
+import {FlatList} from 'react-native-gesture-handler';
 import {memo} from 'react';
 
 const ImagePath = [
@@ -13,49 +13,52 @@ const ImagePath = [
 ];
 
 const Templates = () => {
+  const renderItem = ({item}) => (
+    <View style={styles.imageWrapper}>
+      <Image
+        source={item.source}
+        style={styles.imageStyle}
+        resizeMode="contain"
+      />
+    </View>
+  );
+
   return (
-    <ScrollView
+    <FlatList
+      data={ImagePath}
+      renderItem={renderItem}
+      keyExtractor={(item, index) => index.toString()}
       contentContainerStyle={styles.scrollContainer}
-      style={{flex: 1}}
-      overScrollMode="auto">
-      <View style={styles.innerContainer}>
-        {ImagePath.map((item, index) => (
-          <View key={index} style={styles.imageWrapper}>
-            <Image
-              source={item.source}
-              style={styles.imageStyle}
-              resizeMode="contain"
-            />
-          </View>
-        ))}
-      </View>
-    </ScrollView>
+      numColumns={2}
+      columnWrapperStyle={styles.innerContainer}
+      showsVerticalScrollIndicator={false}
+    />
   );
 };
 
-export default Templates;
+export default memo(Templates);
 
 const styles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
     backgroundColor: '#fff',
     paddingBottom: Platform.select({ios: 35, android: 26}),
-    paddingHorizontal: 7,
-    paddingTop: 16,
+    paddingHorizontal: 16,
+    paddingTop: 20,
   },
   innerContainer: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    rowGap: Platform.select({android: 15, ios: 20}),
-    backgroundColor: '#fff',
-    columnGap: Platform.select({android: 10}),
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+    // columnGap: 17,
   },
   imageWrapper: {
-    width: Platform.select({ios: '50%', android: '48%'}),
-    flexGrow: 1,
+    width: '48%',
+    aspectRatio: 0.5,
   },
   imageStyle: {
     width: '100%',
-    height: 350,
+    height: '100%',
   },
 });

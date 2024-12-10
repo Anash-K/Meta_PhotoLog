@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: GlobalColors.primaryBase,
-    paddingHorizontal: 15,
+    paddingHorizontal: 13,
     paddingVertical: 20,
     paddingTop: 10,
   },
@@ -158,7 +158,9 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 20,
     paddingBottom:11,
-    alignItems:'center'
+    alignItems:'center',
+    borderWidth:2,
+    borderColor:'rgba(241, 244, 254, 0.25)'
   },
   premiumText: {
     flexGrow: 1,

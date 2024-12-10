@@ -49,23 +49,23 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = meta_photoLog/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = meta_photoLog/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-meta_photoLog-meta_photoLogTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-meta_photoLog-meta_photoLogTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B1EF521F4BC493E8E4FC268 /* Urbanist-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-Medium.ttf"; path = "../src/assets/fonts/Urbanist-Medium.ttf"; sourceTree = "<group>"; };
-		22FD583175E74BBCAD751BC6 /* Urbanist-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-SemiBold.ttf"; path = "../src/assets/fonts/Urbanist-SemiBold.ttf"; sourceTree = "<group>"; };
-		32A7FF40D7054FE18C2E34AA /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Semibold.ttf"; path = "../src/assets/fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
-		37A83700E2914076A6273D1A /* Urbanist-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-Light.ttf"; path = "../src/assets/fonts/Urbanist-Light.ttf"; sourceTree = "<group>"; };
+		1B1EF521F4BC493E8E4FC268 /* Urbanist-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-Medium.ttf"; path = "../src/assets/fonts/Urbanist-Medium.ttf"; sourceTree = "<group>"; };
+		22FD583175E74BBCAD751BC6 /* Urbanist-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-SemiBold.ttf"; path = "../src/assets/fonts/Urbanist-SemiBold.ttf"; sourceTree = "<group>"; };
+		32A7FF40D7054FE18C2E34AA /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Semibold.ttf"; path = "../src/assets/fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		37A83700E2914076A6273D1A /* Urbanist-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-Light.ttf"; path = "../src/assets/fonts/Urbanist-Light.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-meta_photoLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meta_photoLog.debug.xcconfig"; path = "Target Support Files/Pods-meta_photoLog/Pods-meta_photoLog.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-meta_photoLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meta_photoLog.release.xcconfig"; path = "Target Support Files/Pods-meta_photoLog/Pods-meta_photoLog.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-meta_photoLog-meta_photoLogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meta_photoLog-meta_photoLogTests.debug.xcconfig"; path = "Target Support Files/Pods-meta_photoLog-meta_photoLogTests/Pods-meta_photoLog-meta_photoLogTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-meta_photoLog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-meta_photoLog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = meta_photoLog/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-meta_photoLog-meta_photoLogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meta_photoLog-meta_photoLogTests.release.xcconfig"; path = "Target Support Files/Pods-meta_photoLog-meta_photoLogTests/Pods-meta_photoLog-meta_photoLogTests.release.xcconfig"; sourceTree = "<group>"; };
-		CBEEE5740CD54851B149295A /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = meta_photoLog/BootSplash.storyboard; sourceTree = "<group>"; };
-		D15BB0696CB440DEB79D7EC2 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../src/assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
-		E25ECE31F6804D6BA0491D94 /* Urbanist-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-Regular.ttf"; path = "../src/assets/fonts/Urbanist-Regular.ttf"; sourceTree = "<group>"; };
-		EAD83605FAB140F597CC0AEF /* Urbanist-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-Bold.ttf"; path = "../src/assets/fonts/Urbanist-Bold.ttf"; sourceTree = "<group>"; };
+		CBEEE5740CD54851B149295A /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = meta_photoLog/BootSplash.storyboard; sourceTree = "<group>"; };
+		D15BB0696CB440DEB79D7EC2 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../src/assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		E25ECE31F6804D6BA0491D94 /* Urbanist-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-Regular.ttf"; path = "../src/assets/fonts/Urbanist-Regular.ttf"; sourceTree = "<group>"; };
+		EAD83605FAB140F597CC0AEF /* Urbanist-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-Bold.ttf"; path = "../src/assets/fonts/Urbanist-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F3641B9E65BD47F0B00A1681 /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = meta_photoLog/Colors.xcassets; sourceTree = "<group>"; };
-		F76AFC747BAC44F99E4EAA98 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../src/assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		F3641B9E65BD47F0B00A1681 /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = meta_photoLog/Colors.xcassets; sourceTree = "<group>"; };
+		F76AFC747BAC44F99E4EAA98 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../src/assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +187,6 @@
 				22FD583175E74BBCAD751BC6 /* Urbanist-SemiBold.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,6 +520,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = meta_photoLog/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MetaPhotoLog;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -548,6 +548,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = meta_photoLog/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MetaPhotoLog;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -635,10 +636,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -707,10 +705,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

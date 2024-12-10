@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>meta_photoLog</string>
+	<string>MetaPhotoLog</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -33,20 +33,6 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
-	<key>UILaunchStoryboardName</key>
-	<string>BootSplash</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>arm64</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>OpenSans-Bold.ttf</string>
@@ -58,5 +44,23 @@
 		<string>Urbanist-Regular.ttf</string>
 		<string>Urbanist-SemiBold.ttf</string>
 	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>BootSplash</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>arm64</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
